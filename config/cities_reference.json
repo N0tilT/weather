@@ -1,0 +1,50 @@
+{
+  "Москва": {
+    "federal_district": "Центральный",
+    "timezone": "UTC+3",
+    "population": 12500000,
+    "tourism_season": "Круглогодично"
+  },
+  "Санкт-Петербург": {
+    "federal_district": "Северо-Западный",
+    "timezone": "UTC+3",
+    "population": 5400000,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Сочи": {
+    "federal_district": "Южный",
+    "timezone": "UTC+3",
+    "population": 400000,
+    "tourism_season": "Май-Октябрь"
+  },
+  "Казань": {
+    "federal_district": "Приволжский",
+    "timezone": "UTC+3",
+    "population": 1300000,
+    "tourism_season": "Апрель-Октябрь"
+  },
+  "Новосибирск": {
+    "federal_district": "Сибирский",
+    "timezone": "UTC+7",
+    "population": 1600000,
+    "tourism_season": "Июнь-Август"
+  },
+  "Екатеринбург": {
+    "federal_district": "Уральский",
+    "timezone": "UTC+5",
+    "population": 1500000,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Иркутск": {
+    "federal_district": "Сибирский",
+    "timezone": "UTC+8",
+    "population": 620000,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Тольятти": {
+    "federal_district": "Приволжский",
+    "timezone": "UTC+0",
+    "population": 662000,
+    "tourism_season": "Круглогодично"
+  }
+}

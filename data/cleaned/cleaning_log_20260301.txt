@@ -1,0 +1,13 @@
+Data cleaning log - 2026-03-01T12:23:40.077275
+Original records: 39
+Cleaned records: 624 (days of data)
+Validation errors: 0
+==================================================
+
+Applied rules:
+- Extended date range: Past 2 days + Next 14 days
+- Daily aggregation from hourly data
+- Temperature range validation (-50 to +60)
+- Calculated daily averages
+- Added cloud_cover, is_day, wind_gusts aggregations (if available)
+- Checked for availability of hourly variables before aggregation
