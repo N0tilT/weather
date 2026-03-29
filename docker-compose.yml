@@ -4,7 +4,7 @@ version: '3.8'
 services:
   api:
     build:
-      context: .
+      context: ./api
       dockerfile: Dockerfile.api
     ports:
       - "${API_PORT:-8000}:8000"
@@ -34,16 +34,16 @@ services:
       - api
     restart: unless-stopped
 
-  pipeline:
-    build:
-      context: .
-      dockerfile: Dockerfile.pipeline
-    env_file:
-      - ./project.env
-    volumes:
-      - ./data:/app/data
-      - ./logs:/app/logs
-      - ./config:/app/config
-    restart: unless-stopped
-    command: >
-      sh -c "echo '0 * * * * python /app/scripts/pipeline_runner.py >> /app/logs/cron.log 2>&1' | crontab - && cron -f"
+  # pipeline:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.pipeline
+  #   env_file:
+  #     - ./project.env
+  #   volumes:
+  #     - ./data:/app/data
+  #     - ./logs:/app/logs
+  #     - ./config:/app/config
+  #   restart: unless-stopped
+  #   command: >
+  #     sh -c "echo '0 * * * * python /app/scripts/pipeline_runner.py >> /app/logs/cron.log 2>&1' | crontab - && cron -f"

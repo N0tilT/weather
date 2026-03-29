@@ -7,7 +7,6 @@ from datetime import datetime, timedelta
 from pathlib import Path
 import logging
 import requests
-from scripts import pipeline_runner
 from pydantic import BaseModel
 import shutil
 import logging
@@ -24,6 +23,29 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+# В начало файла, после импортов
+import sqlite3
+from contextlib import contextmanager
+from typing import Optional, List, Dict, Any
+
+@contextmanager
+def get_db_connection(db_path: str):
+    """Контекстный менеджер для подключения к SQLite"""
+    conn = None
+    try:
+        conn = sqlite3.connect(db_path)
+        conn.row_factory = sqlite3.Row  # Возвращаем строки как словари
+        yield conn
+    except sqlite3.Error as e:
+        logger.error(f"Ошибка подключения к БД {db_path}: {e}")
+        raise
+    finally:
+        if conn:
+            conn.close()
+
+def query_to_df(conn: sqlite3.Connection, query: str, params: tuple = ()) -> pd.DataFrame:
+    """Выполняет SQL-запрос и возвращает результат как DataFrame"""
+    return pd.read_sql_query(query, conn, params=params)
 
 def get_date_path(date_str: str = None):
     """Возвращает путь к данным для указанной даты или текущей"""
@@ -67,48 +89,100 @@ def get_cleaned_data(date_str: str = None):
     
     df = pd.read_csv(cleaned_file)
     return {"date": f"{year}-{month:02d}-{day:02d}", "data": df.to_dict(orient="records")}
-
-# Добавим в api/main.py
-def get_enriched_data(date_str: str = None, city: str = None, start_date: str = None, end_date: str = None):
+def get_cleaned_data(date_str: str = None):
+    """Получает очищенные данные из SQLite БД"""
     year, month, day = get_date_path(date_str)
     timestamp = f"{year}{month:02d}{day:02d}"
-    enriched_file = Path(os.getenv('ENRICHED_DATA_DIR', 'data/enriched')) / f"weather_enriched_{timestamp}.csv"
+    db_path = Path(os.getenv('CLEANED_DATA_DIR', 'data/cleaned')) / "cleaned.db"
     
-    if not enriched_file.exists():
-        raise HTTPException(status_code=404, detail="ENRICHED данные не найдены")
+    if not db_path.exists():
+        raise HTTPException(status_code=404, detail="CLEANED база данных не найдена")
     
-    df = pd.read_csv(enriched_file)
+    try:
+        with get_db_connection(str(db_path)) as conn:
+            # Фильтруем по дате, если в таблице есть колонка
+            query = "SELECT * FROM weather_cleaned"
+            params = ()
+            
+            # Проверяем наличие колонки date и фильтруем
+            cursor = conn.execute("PRAGMA table_info(weather_cleaned)")
+            columns = [row[1] for row in cursor.fetchall()]
+            
+            if 'date' in columns:
+                date_filter = f"{year}-{month:02d}-{day:02d}"
+                query += " WHERE date = ?"
+                params = (date_filter,)
+            
+            df = query_to_df(conn, query, params)
+            
+            if df.empty:
+                raise HTTPException(
+                    status_code=404, 
+                    detail=f"Данные за {year}-{month:02d}-{day:02d} не найдены в БД"
+                )
+            
+            return {"date": f"{year}-{month:02d}-{day:02d}", "data": df.to_dict(orient="records")}
     
-    # Фильтрация по городу
-    if city:
-        df = df[df['city_name'] == city]
-    
-    # Фильтрация по дате (только если колонка 'date' существует)
-    if 'date' in df.columns:
-        if start_date:
-            df = df[pd.to_datetime(df['date']) >= start_date]
-        if end_date:
-            df = df[pd.to_datetime(df['date']) <= end_date]
-    
-    return {"date": f"{year}-{month:02d}-{day:02d}", "data": df.to_dict(orient="records")}
+    except sqlite3.Error as e:
+        logger.error(f"SQLite error in get_cleaned_data: {e}")
+        raise HTTPException(status_code=500, detail=f"Ошибка базы данных: {str(e)}")
 
-def get_aggregated_data(report_type: str):
-    agg_dir = Path(os.getenv('AGGREGATED_DATA_DIR', 'data/aggregated'))
-    file_map = {
-        "city_rating": "city_tourism_rating.csv",
-        "district_summary": "federal_districts_summary.csv",
-        "travel_recommendations": "travel_recommendations.csv"
-    }
+def get_enriched_data(date_str: str = None, city: str = None, start_date: str = None, end_date: str = None):
+    """Получает обогащённые данные из SQLite БД с фильтрацией"""
+    year, month, day = get_date_path(date_str)
+    timestamp = f"{year}{month:02d}{day:02d}"
+    db_path = Path(os.getenv('ENRICHED_DATA_DIR', 'data/enriched')) / "enriched.db"
     
-    if report_type not in file_map:
-        raise HTTPException(status_code=400, detail="Неверный тип отчета")
+    if not db_path.exists():
+        raise HTTPException(status_code=404, detail="ENRICHED база данных не найдена")
     
-    file_path = agg_dir / file_map[report_type]
-    if not file_path.exists():
-        raise HTTPException(status_code=404, detail=f"Отчет {report_type} не найден")
+    try:
+        with get_db_connection(str(db_path)) as conn:
+            # Проверяем структуру таблицы
+            cursor = conn.execute("PRAGMA table_info(weather_enriched)")
+            columns = [row[1] for row in cursor.fetchall()]
+            
+            # Строим запрос с условиями
+            conditions = []
+            params = []
+            
+            if 'date' in columns and date_str:
+                conditions.append("date = ?")
+                params.append(f"{year}-{month:02d}-{day:02d}")
+            
+            if city and 'city_name' in columns:
+                conditions.append("city_name = ?")
+                params.append(city)
+            
+            if start_date and 'date' in columns:
+                conditions.append("date >= ?")
+                params.append(start_date)
+            
+            if end_date and 'date' in columns:
+                conditions.append("date <= ?")
+                params.append(end_date)
+            
+            query = "SELECT * FROM weather_enriched"
+            if conditions:
+                query += " WHERE " + " AND ".join(conditions)
+            
+            df = query_to_df(conn, query, tuple(params))
+            
+            if df.empty and date_str:
+                raise HTTPException(
+                    status_code=404, 
+                    detail=f"Данные не найдены с указанными фильтрами"
+                )
+            
+            return {
+                "date": f"{year}-{month:02d}-{day:02d}" if date_str else "all",
+                "filters": {"city": city, "start_date": start_date, "end_date": end_date},
+                "data": df.to_dict(orient="records")
+            }
     
-    df = pd.read_csv(file_path)
-    return {"report_type": report_type, "data": df.to_dict(orient="records")}
+    except sqlite3.Error as e:
+        logger.error(f"SQLite error in get_enriched_data: {e}")
+        raise HTTPException(status_code=500, detail=f"Ошибка базы данных: {str(e)}")
 
 class CityCoordinates(BaseModel):
     city_name: str
@@ -144,34 +218,48 @@ async def get_enriched_default(date: str = None, city: str = Query(None), start_
 @app.get("/aggregated/{report_type}", response_model=dict)
 async def get_aggregated(report_type: str):
     return get_aggregated_data(report_type)
-
-@app.post("/update", response_model=dict)
-async def update_data(background_tasks: BackgroundTasks):
-    """Запускает обновление данных в фоновом режиме"""
-    background_tasks.add_task(pipeline_runner.run_full_pipeline)
-    return {"status": "success", "message": "Обновление данных запущено в фоновом режиме"}
-
 @app.get("/status", response_model=dict)
 async def get_status():
     """Возвращает статус последнего сбора данных"""
     now = datetime.now()
     timestamp = now.strftime("%Y%m%d")
-    log_file = Path(os.getenv('CLEANED_DATA_DIR', 'data/cleaned')) / f"cleaning_log_{timestamp}.txt"
     
-    if log_file.exists():
-        with open(log_file, 'r') as f:
-            lines = f.readlines()
-            last_update = lines[0].strip() if lines else "Неизвестно"
-            record_count = next((line for line in lines if "Cleaned records" in line), "Неизвестно")
-    else:
-        last_update = "Данные не собраны"
-        record_count = "0 записей"
+    # Проверяем БД enriched
+    enriched_db = Path(os.getenv('ENRICHED_DATA_DIR', 'data/enriched')) / "enriched.db"
+    cleaned_db = Path(os.getenv('CLEANED_DATA_DIR', 'data/cleaned')) / "cleaned.db"
     
-    return {
-        "last_update": last_update,
-        "record_count": record_count,
-        "current_time": datetime.now().isoformat()
+    status_info = {
+        "last_update": "Данные не собраны",
+        "record_count": "0 записей",
+        "current_time": datetime.now().isoformat(),
+        "databases": {}
     }
+    
+    if enriched_db.exists():
+        try:
+            with get_db_connection(str(enriched_db)) as conn:
+                cursor = conn.execute("SELECT COUNT(*) FROM weather_enriched")
+                count = cursor.fetchone()[0]
+                status_info["databases"]["enriched"] = {"records": count, "status": "ok"}
+                
+                # Получаем последнюю дату
+                cursor = conn.execute("SELECT MAX(date) FROM weather_enriched WHERE date IS NOT NULL")
+                last_date = cursor.fetchone()[0]
+                if last_date:
+                    status_info["last_update"] = last_date
+        except Exception as e:
+            status_info["databases"]["enriched"] = {"status": "error", "message": str(e)}
+    
+    if cleaned_db.exists():
+        try:
+            with get_db_connection(str(cleaned_db)) as conn:
+                cursor = conn.execute("SELECT COUNT(*) FROM weather_cleaned")
+                count = cursor.fetchone()[0]
+                status_info["databases"]["cleaned"] = {"records": count, "status": "ok"}
+        except Exception as e:
+            status_info["databases"]["cleaned"] = {"status": "error", "message": str(e)}
+    
+    return status_info
 
 @app.get("/validate/city", response_model=dict)
 async def validate_city(lat: float, lon: float):
@@ -374,131 +462,64 @@ async def update_city_data(city_key: str, background_tasks: BackgroundTasks):
 
 @app.get("/weather_trends/{city_key}", response_model=dict)
 async def get_weather_trends(city_key: str, days: int = Query(7, description="Количество дней для анализа трендов")):
-    """Получает тренды погоды для конкретного города за указанный период"""
+    """Получает тренды погоды для конкретного города за указанный период из БД"""
     logger.info(f"get_weather_trends called with city_key: {city_key}, days: {days}")
     
     coords_path = Path("config/city_coordinates.json")
-    
     if not coords_path.exists():
-        logger.error(f"Config file {coords_path} not found")
-        raise HTTPException(
-            status_code=404, 
-            detail="Файл координат городов не найден"
-        )
+        raise HTTPException(status_code=404, detail="Файл координат городов не найден")
     
     try:
         with open(coords_path, 'r', encoding='utf-8') as f:
             coords = json.load(f)
-        logger.debug(f"Loaded coordinates, keys: {list(coords.keys())}")
         
         if city_key not in coords:
-            logger.warning(f"City key '{city_key}' not found in coordinates")
-            raise HTTPException(
-                status_code=404, 
-                detail=f"Город с ключом '{city_key}' не найден"
-            )
+            raise HTTPException(status_code=404, detail=f"Город с ключом '{city_key}' не найден")
         
         city_name = coords[city_key]['name']
-        logger.info(f"Found city name '{city_name}' for key '{city_key}'")
         
-        # Получаем последние данные
-        now = datetime.now()
-        timestamp = now.strftime("%Y%m%d")
-        enriched_file = Path(os.getenv('ENRICHED_DATA_DIR', 'data/enriched')) / f"weather_enriched_{timestamp}.csv"
+        # Получаем данные из БД
+        db_path = Path(os.getenv('ENRICHED_DATA_DIR', 'data/enriched')) / "enriched.db"
+        if not db_path.exists():
+            raise HTTPException(status_code=404, detail="База данных enriched не найдена")
         
-        logger.info(f"Attempting to read enriched data from: {enriched_file}")
-        
-        if not enriched_file.exists():
-            logger.error(f"Enriched data file {enriched_file} not found")
-            raise HTTPException(
-                status_code=404, 
-                detail="Данные не найдены"
-            )
-        
-        # --- Добавим логирование перед чтением CSV ---
-        logger.debug(f"Reading CSV file: {enriched_file}")
-        df = pd.read_csv(enriched_file)
-        logger.info(f"Successfully read CSV. Shape: {df.shape}, Columns: {list(df.columns)}")
-        
-        city_data = df[df['city_name'] == city_name].sort_values('date')
-        logger.info(f"Filtered data for city '{city_name}'. Shape after filter: {city_data.shape}")
-        
-        # Берем последние N дней
         end_date = datetime.now()
         start_date = end_date - timedelta(days=days)
         
-        # --- Проверим, есть ли колонка 'date' ---
-        if 'date' not in city_data.columns:
-             logger.error(f"'date' column not found in enriched data for city '{city_name}'. Available columns: {list(city_data.columns)}")
-             raise HTTPException(
-                 status_code=500,
-                 detail=f"Внутренняя ошибка: колонка 'date' отсутствует в данных для '{city_name}'"
-             )
+        with get_db_connection(str(db_path)) as conn:
+            # Проверяем колонки
+            cursor = conn.execute("PRAGMA table_info(weather_enriched)")
+            columns = [row[1] for row in cursor.fetchall()]
+            
+            if 'date' not in columns or 'city_name' not in columns:
+                raise HTTPException(status_code=500, detail="Неверная структура таблицы weather_enriched")
+            
+            # Запрос с фильтрацией
+            query = """
+                SELECT * FROM weather_enriched 
+                WHERE city_name = ? AND date >= ? AND date <= ?
+                ORDER BY date
+            """
+            df = query_to_df(conn, query, (city_name, start_date.strftime('%Y-%m-%d'), end_date.strftime('%Y-%m-%d')))
         
-        # --- Проверим, содержит ли колонка 'date' данные ---
-        if city_data.empty:
-            logger.warning(f"No data found for city '{city_name}' in the enriched dataset.")
-            raise HTTPException(
-                status_code=404, 
-                detail=f"Нет данных за последние {days} дней для {city_name}"
-            )
+        if df.empty:
+            raise HTTPException(status_code=404, detail=f"Нет данных за последние {days} дней для {city_name}")
         
-        # --- Проверим тип данных в 'date' ---
-        # Попробуем преобразовать, если нужно
-        try:
-            city_data['date_parsed'] = pd.to_datetime(city_data['date'])
-        except Exception as e:
-            logger.error(f"Error parsing 'date' column for city '{city_name}': {e}")
-            raise HTTPException(
-                 status_code=500,
-                 detail=f"Внутренняя ошибка: невозможно обработать дату в данных для '{city_name}'"
-             )
+        # --- Расчет трендов (аналогично оригиналу, но с правильными колонками) ---
+        required_cols = ['temperature', 'daily_temp_max', 'daily_temp_min', 'humidity', 'wind_speed', 'comfort_index']
         
-        recent_data = city_data[
-            (city_data['date_parsed'] >= start_date.strftime('%Y-%m-%d')) &
-            (city_data['date_parsed'] <= end_date.strftime('%Y-%m-%d'))
-        ]
+        avg_temp = df['temperature'].mean() if 'temperature' in df.columns else None
+        max_temp = df['daily_temp_max'].max() if 'daily_temp_max' in df.columns else None
+        min_temp = df['daily_temp_min'].min() if 'daily_temp_min' in df.columns else None
+        avg_humidity = df['humidity'].mean() if 'humidity' in df.columns else None
+        avg_wind = df['wind_speed'].mean() if 'wind_speed' in df.columns else None
+        comfort_avg = df['comfort_index'].mean() if 'comfort_index' in df.columns else None
         
-        logger.info(f"Data for last {days} days for city '{city_name}'. Shape: {recent_data.shape}")
-        
-        if recent_data.empty:
-            logger.warning(f"No data found for city '{city_name}' in the last {days} days.")
-            raise HTTPException(
-                status_code=404, 
-                detail=f"Нет данных за последние {days} дней для {city_name}"
-            )
-        
-        # --- Проверим, есть ли нужные колонки для расчета трендов ---
-        required_columns = ['temperature_avg', 'temperature_max', 'temperature_min', 'humidity_avg', 'wind_speed_avg', 'comfort_index']
-        # ВНИМАНИЕ: используем те колонки, которые реально создаются clean_data.py
-        # В нашем случае это 'temperature', 'daily_temp_max', 'daily_temp_min', 'humidity', 'wind_speed', 'comfort_index'
-        required_columns_real = ['temperature', 'daily_temp_max', 'daily_temp_min', 'humidity', 'wind_speed', 'comfort_index']
-        
-        missing_cols = [col for col in required_columns_real if col not in recent_data.columns]
-        if missing_cols:
-            logger.warning(f"Some required columns for trends are missing: {missing_cols}. Available: {list(recent_data.columns)}")
-            # Не вызываем ошибку, а просто используем доступные
-        
-        # Рассчитываем тренды
-        # Используем правильные названия колонок
-        avg_temp = recent_data['temperature'].mean() if 'temperature' in recent_data.columns else None
-        max_temp = recent_data['daily_temp_max'].max() if 'daily_temp_max' in recent_data.columns else None
-        min_temp = recent_data['daily_temp_min'].min() if 'daily_temp_min' in recent_data.columns else None
-        avg_humidity = recent_data['humidity'].mean() if 'humidity' in recent_data.columns else None
-        avg_wind = recent_data['wind_speed'].mean() if 'wind_speed' in recent_data.columns else None
-        comfort_avg = recent_data['comfort_index'].mean() if 'comfort_index' in recent_data.columns else None
-        
-        logger.info(f"Trend calculations completed for {city_name}")
-        
-        # Определяем тенденции
+        # Определяем температурный тренд
         temp_trend = "Нет данных"
-        if len(recent_data) > 1 and 'temperature' in recent_data.columns:
-            first_temp_row = recent_data.iloc[0]
-            last_temp_row = recent_data.iloc[-1]
-            
-            first_temp = first_temp_row['temperature']
-            last_temp = last_temp_row['temperature']
-            
+        if len(df) > 1 and 'temperature' in df.columns:
+            first_temp = df.iloc[0]['temperature']
+            last_temp = df.iloc[-1]['temperature']
             if pd.notna(first_temp) and pd.notna(last_temp):
                 if last_temp > first_temp + 2:
                     temp_trend = "Повышение"
@@ -506,12 +527,8 @@ async def get_weather_trends(city_key: str, days: int = Query(7, description="К
                     temp_trend = "Понижение"
                 else:
                     temp_trend = "Стабильно"
-            else:
-                logger.info(f"Could not determine temp trend due to NaN values: first={first_temp}, last={last_temp}")
-        elif 'temperature' not in recent_data.columns:
-            logger.warning("Could not determine temp trend as 'temperature' column is missing.")
         
-        result = {
+        return {
             "city": city_name,
             "period": f"Последние {days} дней",
             "trends": {
@@ -522,13 +539,16 @@ async def get_weather_trends(city_key: str, days: int = Query(7, description="К
                 "avg_wind_speed": round(avg_wind, 1) if pd.notna(avg_wind) else None,
                 "avg_comfort_index": round(comfort_avg, 1) if pd.notna(comfort_avg) else None,
                 "temperature_trend": temp_trend,
-                "total_days": len(recent_data),
-                "days_with_precipitation": len(recent_data[recent_data['precipitation'] > 0]) if 'precipitation' in recent_data.columns else 0 # Проверяем колонку precipitation
+                "total_days": len(df),
+                "days_with_precipitation": len(df[df['precipitation'] > 0]) if 'precipitation' in df.columns else 0
             }
         }
         
-        logger.info(f"Returning trends for {city_name}")
-        return result
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Error in get_weather_trends: {e}", exc_info=True)
+        raise HTTPException(status_code=500, detail=f"Ошибка при получении трендов: {str(e)}")
         
     except HTTPException:
         # Re-raise HTTP exceptions
@@ -539,66 +559,90 @@ async def get_weather_trends(city_key: str, days: int = Query(7, description="К
             status_code=500, 
             detail=f"Ошибка при получении трендов: {str(e)}"
         )
-
 @app.get("/historical_data/{city_key}", response_model=dict)
 async def get_historical_data(city_key: str, start_date: str, end_date: str):
-    """Получает исторические данные для конкретного города за указанный период"""
+    """Получает исторические данные из БД"""
     coords_path = Path("config/city_coordinates.json")
-    
     if not coords_path.exists():
-        raise HTTPException(
-            status_code=404, 
-            detail="Файл координат городов не найден"
-        )
+        raise HTTPException(status_code=404, detail="Файл координат городов не найден")
     
     try:
         with open(coords_path, 'r', encoding='utf-8') as f:
             coords = json.load(f)
         
         if city_key not in coords:
-            raise HTTPException(
-                status_code=404, 
-                detail=f"Город с ключом '{city_key}' не найден"
-            )
+            raise HTTPException(status_code=404, detail=f"Город с ключом '{city_key}' не найден")
         
         city_name = coords[city_key]['name']
+        db_path = Path(os.getenv('ENRICHED_DATA_DIR', 'data/enriched')) / "enriched.db"
         
-        now = datetime.now()
-        timestamp = now.strftime("%Y%m%d")
-        enriched_file = Path(os.getenv('ENRICHED_DATA_DIR', 'data/enriched')) / f"weather_enriched_{timestamp}.csv"
+        if not db_path.exists():
+            raise HTTPException(status_code=404, detail="База данных enriched не найдена")
         
-        if not enriched_file.exists():
-            raise HTTPException(
-                status_code=404, 
-                detail="Данные не найдены"
-            )
+        with get_db_connection(str(db_path)) as conn:
+            query = """
+                SELECT * FROM weather_enriched 
+                WHERE city_name = ? AND date >= ? AND date <= ?
+                ORDER BY date
+            """
+            df = query_to_df(conn, query, (city_name, start_date, end_date))
         
-        df = pd.read_csv(enriched_file)
-        city_data = df[df['city_name'] == city_name]
-        
-        filtered_data = city_data[
-            (pd.to_datetime(city_data['date']) >= start_date) &
-            (pd.to_datetime(city_data['date']) <= end_date)
-        ].sort_values('date')
-        
-        if filtered_data.empty:
-            raise HTTPException(
-                status_code=404, 
-                detail=f"Нет данных за период {start_date} - {end_date} для {city_name}"
-            )
+        if df.empty:
+            raise HTTPException(status_code=404, detail=f"Нет данных за период {start_date} - {end_date} для {city_name}")
         
         return {
             "city": city_name,
             "date_range": f"{start_date} - {end_date}",
-            "total_records": len(filtered_data),
-            "data": filtered_data.to_dict(orient="records")
+            "total_records": len(df),
+            "data": df.to_dict(orient="records")
         }
         
+    except HTTPException:
+        raise
     except Exception as e:
-        raise HTTPException(
-            status_code=500, 
-            detail=f"Ошибка при получении исторических данных: {str(e)}"
-        )
+        logger.error(f"Error in get_historical_data: {e}")
+        raise HTTPException(status_code=500, detail=f"Ошибка при получении исторических данных: {str(e)}")
+
+
+@app.get("/config/cities_reference", response_model=dict)
+async def get_cities_reference():
+    """Возвращает справочник городов с дополнительной информацией"""
+    ref_path = Path("config/cities_reference.json")
+    
+    if not ref_path.exists():
+        # Возвращаем пустой справочник, если файл не найден
+        return {"reference": {}}
+    
+    try:
+        with open(ref_path, 'r', encoding='utf-8') as f:
+            ref = json.load(f)
+        return {"reference": ref}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Ошибка при чтении справочника: {str(e)}")
+
+@app.get("/config/cities/full", response_model=dict)
+async def get_full_cities_config():
+    """Возвращает объединённые данные: координаты + справочник"""
+    coords_path = Path("config/city_coordinates.json")
+    ref_path = Path("config/cities_reference.json")
+    
+    result = {"coordinates": {}, "reference": {}}
+    
+    if coords_path.exists():
+        try:
+            with open(coords_path, 'r', encoding='utf-8') as f:
+                result["coordinates"] = json.load(f)
+        except Exception as e:
+            logger.warning(f"Could not load coordinates: {e}")
+    
+    if ref_path.exists():
+        try:
+            with open(ref_path, 'r', encoding='utf-8') as f:
+                result["reference"] = json.load(f)
+        except Exception as e:
+            logger.warning(f"Could not load reference: {e}")
+    
+    return result
 
 if __name__ == "__main__":
     import uvicorn

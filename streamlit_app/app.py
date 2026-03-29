@@ -67,6 +67,20 @@ def add_city_coordinates(city_name, lat, lon, ru_name, federal_district, timezon
 def get_city_coordinates():
     return fetch_data("/config/city_coordinates")
 
+def get_full_cities_config():
+    """Получает объединённые данные о городах с сервера"""
+    try:
+        response = requests.get(f"{API_URL}/config/cities/full", timeout=10)
+        response.raise_for_status()
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        st.error(f"❌ Ошибка при получении конфигурации городов: {str(e)}")
+        return None
+
+def get_cities_reference():
+    """Получает справочник городов с сервера"""
+    return fetch_data("/config/cities_reference")
+
 def get_weather_trends(city_key, days=7):
     return fetch_data(f"/weather_trends/{city_key}", params={"days": days})
 
@@ -78,24 +92,41 @@ def get_historical_data(city_key, start_date, end_date):
 
 def main():
     st.set_page_config(
-        page_title="Погодный туризм (Расширенный Open-Meteo)",
+        page_title="Погода",
         page_icon="🌤️",
         layout="wide",
         initial_sidebar_state="expanded"
     )
     
     # Заголовок
-    st.title("🌤️ Система анализа погоды для туристической компании (Расширенный Open-Meteo)")
+    st.title("🌤️ Система анализа погоды для туристической компании")
     
     # Боковая панель
     st.sidebar.header("🌍 Управление городами")
     
     # Получение текущих координат городов
-    city_coords = get_city_coordinates()
+        
+    st.sidebar.markdown("### 🔄 Загрузка данных...")
+    with st.spinner("Загружаем список городов..."):
+        cities_config = get_full_cities_config()
+
     city_names = []
-    if city_coords and 'coordinates' in city_coords:
-        city_names = [info['name'] for info in city_coords['coordinates'].values()]
-        city_keys = {info['name']: key for key, info in city_coords['coordinates'].items()}
+    city_keys = {}
+    cities_reference = {}
+
+    if cities_config:
+        # Координаты: key -> {lat, lon, name}
+        if 'coordinates' in cities_config:
+            city_keys = {info['name']: key for key, info in cities_config['coordinates'].items()}
+            city_names = list(city_keys.keys())
+        
+        # Справочник: ru_name -> {federal_district, timezone, ...}
+        if 'reference' in cities_config:
+            cities_reference = cities_config['reference']
+        
+        st.sidebar.success(f"✅ Загружено {len(city_names)} городов")
+    else:
+        st.sidebar.warning("⚠️ Не удалось загрузить список городов")
     
     # Выбор города для просмотра деталей
     selected_city = st.sidebar.selectbox(
@@ -715,8 +746,10 @@ def main():
                                 st.success(message)
                                 st.balloons()
                                 
-                                # Предложение собрать данные для нового города
-                                st.subheader("Что дальше?")
+                                # 🔁 Обновляем данные городов после добавления
+                                with st.spinner("Обновляем список городов..."):
+                                    time.sleep(1)  # Даём серверу время на сохранение
+                                    st.rerun()  # Перезагружаем приложение для обновления списка
                                 
                                 col1, col2 = st.columns(2)
                                 with col1:
@@ -752,50 +785,46 @@ def main():
             st.subheader("Управление городами")
             
             # Отображение текущих городов
-            if city_coords and 'coordinates' in city_coords:
-                st.write("Текущие города в системе:")
-                
-                # Создаем DataFrame для отображения
-                cities_df = pd.DataFrame([
-                    {
-                        "Город": info['name'],
-                        "Ключ": key,
-                        "Широта": info['lat'],
-                        "Долгота": info['lon']
-                    } 
-                    for key, info in city_coords['coordinates'].items()
-                ])
-                
-                st.data_editor(
-                    cities_df,
-                    hide_index=True,
-                    column_config={
-                        "Город": st.column_config.TextColumn(
-                            "Город",
-                            width="medium"
-                        ),
-                        "Ключ": st.column_config.TextColumn(
-                            "Ключ",
-                            width="medium"
-                        ),
-                        "Широта": st.column_config.NumberColumn(
-                            "Широта",
-                            format="%.4f",
-                            width="small"
-                        ),
-                        "Долгота": st.column_config.NumberColumn(
-                            "Долгота",
-                            format="%.4f",
-                            width="small"
-                        )
-                    }
-                )
-                
-                st.info(f"Всего городов в системе: {len(cities_df)}")
-            else:
-                st.warning("Не удалось загрузить список городов")
-                st.info("Возможно, файл конфигурации поврежден или отсутствует")
+                    
+        if cities_config and 'coordinates' in cities_config:
+            st.write("Текущие города в системе:")
             
+            # Объединяем координаты и справочник для отображения
+            cities_list = []
+            for key, coord_info in cities_config['coordinates'].items():
+                ref_info = cities_reference.get(coord_info['name'], {})
+                cities_list.append({
+                    "Город": coord_info['name'],
+                    "Ключ": key,
+                    "Широта": coord_info['lat'],
+                    "Долгота": coord_info['lon'],
+                    "Округ": ref_info.get('federal_district', '—'),
+                    "Население": ref_info.get('population', '—'),
+                    "Сезон": ref_info.get('tourism_season', '—')
+                })
+            
+            cities_df = pd.DataFrame(cities_list)
+            
+            st.data_editor(
+                cities_df,
+                hide_index=True,
+                disabled=["Город", "Ключ", "Широта", "Долгота"],  # Только для просмотра
+                column_config={
+                    "Город": st.column_config.TextColumn("Город", width="medium"),
+                    "Ключ": st.column_config.TextColumn("Ключ", width="small"),
+                    "Широта": st.column_config.NumberColumn("Широта", format="%.4f", width="small"),
+                    "Долгота": st.column_config.NumberColumn("Долгота", format="%.4f", width="small"),
+                    "Округ": st.column_config.TextColumn("Округ", width="medium"),
+                    "Население": st.column_config.NumberColumn("Население", width="small"),
+                    "Сезон": st.column_config.TextColumn("Сезон", width="medium")
+                }
+            )
+            
+            st.info(f"📊 Всего городов: {len(cities_df)}")
+        else:
+            st.warning("Не удалось загрузить список городов с сервера")
+            if st.button("🔄 Попробовать снова"):
+                st.rerun()
             # Кнопка для отображения формы добавления
             if st.button("➕ Добавить новый город", use_container_width=True):
                 st.session_state.show_add_city = True
