@@ -1,50 +1,2894 @@
 {
-  "Москва": {
-    "federal_district": "Центральный",
+  "Aksa": {
+    "federal_district": null,
     "timezone": "UTC+3",
-    "population": 12500000,
-    "tourism_season": "Круглогодично"
-  },
-  "Санкт-Петербург": {
-    "federal_district": "Северо-Западный",
-    "timezone": "UTC+3",
-    "population": 5400000,
+    "population": null,
     "tourism_season": "Май-Сентябрь"
   },
-  "Сочи": {
-    "federal_district": "Южный",
+  "Aksyonovo-Zilovskoye": {
+    "federal_district": null,
     "timezone": "UTC+3",
-    "population": 400000,
-    "tourism_season": "Май-Октябрь"
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
   },
-  "Казань": {
-    "federal_district": "Приволжский",
+  "Akturu": {
+    "federal_district": null,
     "timezone": "UTC+3",
-    "population": 1300000,
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Akyar": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Alexeyevskoye": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Ali-Jurt": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Anabar": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Arkhangelsk Kholm": {
+    "federal_district": "Северо-Западный",
+    "timezone": "Europe/Moscow",
+    "population": null,
+    "tourism_season": "Июнь-Август"
+  },
+  "Arkhangelskoye": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Artyomovsky": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Astrakhanka": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Baley": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Barnaul (AWS)": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Batyryevo": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Belgorod (airport)": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Belokuriha 2": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Barnaul",
+    "population": null,
+    "tourism_season": "Июнь-Август"
+  },
+  "Beloretsk (weather station)": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Belya": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Beregovoy (aerodrome)": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Biysk Zonalnaya": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Blagoveshchensk (weather station)": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Bol'shiye Byeryezniki": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Bolshelug": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Bolshoy Bomnak": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Bolshoy On": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Bolshoy Ushkaniy": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Bratolyubovka": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Bryansk (airport)": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Buinaksk": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Butovo": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Chaun": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Cheboksary (airport)": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Chokurdakh (airport)": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Chuguevka": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Chyulbyu": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Debyosy": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Domodedovo (airport)": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Donetsk (airport)": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Dorozhnyy": {
+    "federal_district": "Центральный",
+    "timezone": "Europe/Moscow",
+    "population": 54,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Dyoma": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Dzhikimda": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Evgekinot": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Fyedorovka": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Gary": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Grigoryevka": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Habary": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Harp": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Horinsk (airport)": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Horol": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Inta (airport)": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Irael": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Ivdel": {
+    "federal_district": "Уральский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Kamen-na-Obi": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Kananikolskoye": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Karaidelskiy": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Karatyurek": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Katanda": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Kazan-Opornaya (weather station)": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Kem (aerological station)": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Khanty-Mansiysk (airport)": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Kherson (weather station)": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Kirovskiy": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Komaka": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Kozmodemyansk": {
+    "federal_district": "Приволжский",
+    "timezone": "Europe/Moscow",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Krasnodar (airport)": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Krasnoselkup": {
+    "federal_district": "Уральский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Krasny Yar": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Krest-Khaldzhay": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Ksenyevka": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Kurgan (weather station)": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Lagan": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Lisy Nos": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Lugansk": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Macha": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Malinovo": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Markovo": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Marresale": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Maykop (airport)": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Melnichnoye": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Mikhaylovsk (weather station)": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Mirnyy (airport)": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Mnogoudobnoe": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Moscow (northwest": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Mutny Materik": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Nadym (airport)": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Nauchny Gorodok": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Nevyansk": {
+    "federal_district": "Уральский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Nizhny Tsasuchey": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Novo-Iyerusalim": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Novy Urengoy (airport)": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Obluchye": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Ohotskiy Perevoz": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Olga": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Orel (airport)": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Orenburg (weather station)": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Pavlovsky Posad": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Petrovsk-Zabaikalskiy": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Pevek (weather station)": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Polyarny (airport)": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Posyet": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Prohladnyy": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Pustosh": {
+    "federal_district": "Центральный",
+    "timezone": "Europe/Moscow",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Rayevsky": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Romanivka": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Rostov-on-Don": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Rudnaja Pristan": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Sannikov Strait": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Saransk (airport)": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Saratov South (airport)": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Sebyan-kyuel": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Segyan-Kyel": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Seminsky pass": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Sevastopol": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Shadzhatmaz": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Sheremetyevo (airport)": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Shulgan-Tash (nature reserve)": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Solovyevsk": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Sosnovo-Ozërskoye": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Irkutsk",
+    "population": 5840,
+    "tourism_season": "Июнь-Август"
+  },
+  "Spassk-Dalniy": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Srednyaya Olyokma": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Stavropol (airport)": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Suhana": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Sulak (weather station 37461)": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Suontit": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Syktyvkar (airport)": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Taksimo (weather station)": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Talmenka": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Tayna": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Teberda": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Tegyulta-Terde": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Tepliy Klyuch": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Tiksi (airport)": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Timiryazevskij": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Tolstopaltsevo": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Tompa": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Torey": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Tuimazy": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Tukan": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Ucaly (weather station)": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Uchur": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Ugino": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Uglovskoe": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Ukhta (airport)": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Ulan-Ude (airport)": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Ulu-Teljak": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Ulyanovsk (airport)": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Uryupino": {
+    "federal_district": "Центральный",
+    "timezone": "Europe/Moscow",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Usinsk (airport)": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Ust-Barguzin": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Ust-Charyshskaya Pristan": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Ust-Dzhilinda": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Ust-Kalmanka": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Ust-Kan": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Ust-Karsk": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Ust-Koksa": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Ust-Mil": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Ust-Moma": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Ust-Nyukzha": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Ust-Tsylma": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Ust-Urkima": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Ust-Vym": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Ust-Yudoma": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Ust-Zaza": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Uybat": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Krasnoyarsk",
+    "population": null,
+    "tourism_season": "Июнь-Август"
+  },
+  "Verkhoturye": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Verkhoyanskiy Perevoz": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Vladikavkaz (airport)": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Vnukovo (airport)": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Vologda (airport)": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Vorkuta (airport)": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Vyerkhnyeyarkyeyevo": {
+    "federal_district": null,
+    "timezone": "UTC+3",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Агзу": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Vladivostok",
+    "population": null,
+    "tourism_season": "Июль-Август"
+  },
+  "Азнакаево": {
+    "federal_district": "Приволжский",
+    "timezone": "Europe/Moscow",
+    "population": 34750,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Ак-Кем": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Barnaul",
+    "population": null,
+    "tourism_season": "Июнь-Август"
+  },
+  "Аксарка": {
+    "federal_district": "Уральский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": 2576,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Аксубаево": {
+    "federal_district": "Приволжский",
+    "timezone": "Europe/Moscow",
+    "population": 9078,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Алапаевск": {
+    "federal_district": "Уральский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": 44000,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Алдан": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Yakutsk",
+    "population": 24426,
+    "tourism_season": "Июль-Август"
+  },
+  "Алейск": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Barnaul",
+    "population": 28019,
+    "tourism_season": "Июнь-Август"
+  },
+  "Александровский Завод": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Chita",
+    "population": 2516,
+    "tourism_season": "Июнь-Август"
+  },
+  "Амга": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Yakutsk",
+    "population": 6151,
+    "tourism_season": "Июль-Август"
+  },
+  "Анадырь": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Anadyr",
+    "population": 15604,
+    "tourism_season": "Июль-Август"
+  },
+  "Андрюшкино": {
+    "federal_district": "Северо-Западный",
+    "timezone": "Europe/Moscow",
+    "population": null,
+    "tourism_season": "Июнь-Август"
+  },
+  "Антипаюта": {
+    "federal_district": "Уральский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Арск": {
+    "federal_district": "Приволжский",
+    "timezone": "Europe/Moscow",
+    "population": 17243,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Артезиан": {
+    "federal_district": "Южный",
+    "timezone": "Europe/Moscow",
+    "population": null,
     "tourism_season": "Апрель-Октябрь"
   },
-  "Новосибирск": {
+  "Артыбаш": {
     "federal_district": "Сибирский",
-    "timezone": "UTC+7",
-    "population": 1600000,
+    "timezone": "Asia/Barnaul",
+    "population": 1200,
     "tourism_season": "Июнь-Август"
+  },
+  "Архыз": {
+    "federal_district": null,
+    "timezone": "Europe/Moscow",
+    "population": 600,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Аскино": {
+    "federal_district": "Приволжский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": 6866,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Асташиха": {
+    "federal_district": "Северо-Западный",
+    "timezone": "Europe/Moscow",
+    "population": null,
+    "tourism_season": "Июнь-Август"
+  },
+  "Астрахань": {
+    "federal_district": "Южный",
+    "timezone": "Europe/Astrakhan",
+    "population": 533925,
+    "tourism_season": "Апрель-Октябрь"
+  },
+  "Ахты": {
+    "federal_district": "Северо-Кавказский",
+    "timezone": "Europe/Moscow",
+    "population": 14080,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Аэропорт Североуральск": {
+    "federal_district": "Уральский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Бабаюрт": {
+    "federal_district": "Северо-Кавказский",
+    "timezone": "Europe/Moscow",
+    "population": 13857,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Бабушкин": {
+    "federal_district": "Центральный",
+    "timezone": "Europe/Moscow",
+    "population": 86000,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Бавлы": {
+    "federal_district": "Приволжский",
+    "timezone": "Europe/Moscow",
+    "population": 22982,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Багдарин": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Irkutsk",
+    "population": 4676,
+    "tourism_season": "Июнь-Август"
+  },
+  "Бакалы": {
+    "federal_district": "Приволжский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": 9532,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Батагай": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Vladivostok",
+    "population": 4266,
+    "tourism_season": "Июль-Август"
+  },
+  "Батагай-Алыта": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Yakutsk",
+    "population": 1666,
+    "tourism_season": "Июль-Август"
+  },
+  "Батамай": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Yakutsk",
+    "population": null,
+    "tourism_season": "Июль-Август"
+  },
+  "Баунт": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Irkutsk",
+    "population": null,
+    "tourism_season": "Июнь-Август"
+  },
+  "Беклемишево": {
+    "federal_district": "Центральный",
+    "timezone": "Europe/Moscow",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Белогорка": {
+    "federal_district": "Приволжский",
+    "timezone": "Europe/Moscow",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Бийск": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Barnaul",
+    "population": 215430,
+    "tourism_season": "Июнь-Август"
+  },
+  "Билибино": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Anadyr",
+    "population": 5757,
+    "tourism_season": "Июль-Август"
+  },
+  "Биробиджан": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Vladivostok",
+    "population": 73623,
+    "tourism_season": "Июль-Август"
+  },
+  "Бирск": {
+    "federal_district": "Приволжский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": 41014,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Бисерть": {
+    "federal_district": "Уральский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": 11077,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Бичура": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Irkutsk",
+    "population": 9559,
+    "tourism_season": "Июнь-Август"
+  },
+  "Благовещенка": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Barnaul",
+    "population": 12319,
+    "tourism_season": "Июнь-Август"
+  },
+  "Богополь": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Vladivostok",
+    "population": null,
+    "tourism_season": "Июль-Август"
+  },
+  "Болгар": {
+    "federal_district": "Приволжский",
+    "timezone": "Europe/Moscow",
+    "population": 8640,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Боровичи": {
+    "federal_district": "Северо-Западный",
+    "timezone": "Europe/Moscow",
+    "population": 56571,
+    "tourism_season": "Июнь-Август"
+  },
+  "Бугульма": {
+    "federal_district": "Приволжский",
+    "timezone": "Europe/Moscow",
+    "population": 91900,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Буздяк": {
+    "federal_district": "Приволжский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": 9752,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Бурмантово": {
+    "federal_district": "Уральский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Бутка": {
+    "federal_district": "Уральский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": 3510,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Бысса": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Yakutsk",
+    "population": null,
+    "tourism_season": "Июль-Август"
+  },
+  "Валдай": {
+    "federal_district": "Северо-Западный",
+    "timezone": "Europe/Moscow",
+    "population": 18549,
+    "tourism_season": "Июнь-Август"
+  },
+  "Вендинга": {
+    "federal_district": "Северо-Западный",
+    "timezone": "Europe/Moscow",
+    "population": null,
+    "tourism_season": "Июнь-Август"
+  },
+  "Верхневилюйск": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Yakutsk",
+    "population": 6341,
+    "tourism_season": "Июль-Август"
+  },
+  "Верхнее Дуброво": {
+    "federal_district": "Уральский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": 4596,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Верхоянск": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Vladivostok",
+    "population": 1388,
+    "tourism_season": "Июль-Август"
+  },
+  "Весляна": {
+    "federal_district": "Северо-Западный",
+    "timezone": "Europe/Moscow",
+    "population": null,
+    "tourism_season": "Июнь-Август"
+  },
+  "Вилюйск": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Yakutsk",
+    "population": 9948,
+    "tourism_season": "Июль-Август"
+  },
+  "Винницы": {
+    "federal_district": "Северо-Западный",
+    "timezone": "Europe/Moscow",
+    "population": 2200,
+    "tourism_season": "Июнь-Август"
+  },
+  "Витим": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Yakutsk",
+    "population": 3843,
+    "tourism_season": "Июль-Август"
+  },
+  "Владимир": {
+    "federal_district": "Центральный",
+    "timezone": "Europe/Moscow",
+    "population": 357024,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Воейково": {
+    "federal_district": "Северо-Западный",
+    "timezone": "Europe/Moscow",
+    "population": null,
+    "tourism_season": "Июнь-Август"
+  },
+  "Волгоград": {
+    "federal_district": "Южный",
+    "timezone": "Europe/Volgograd",
+    "population": 1013533,
+    "tourism_season": "Апрель-Октябрь"
+  },
+  "Волоколамск": {
+    "federal_district": "Центральный",
+    "timezone": "Europe/Moscow",
+    "population": 25000,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Волосово": {
+    "federal_district": "Северо-Западный",
+    "timezone": "Europe/Moscow",
+    "population": 12096,
+    "tourism_season": "Июнь-Август"
+  },
+  "Волчиха": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Barnaul",
+    "population": 11212,
+    "tourism_season": "Июнь-Август"
+  },
+  "Воронеж": {
+    "federal_district": "Центральный",
+    "timezone": "Europe/Moscow",
+    "population": 1047549,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Воскресенск": {
+    "federal_district": "Центральный",
+    "timezone": "Europe/Moscow",
+    "population": 77086,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Воткинск": {
+    "federal_district": null,
+    "timezone": "Europe/Samara",
+    "population": 98633,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Выборг": {
+    "federal_district": "Северо-Западный",
+    "timezone": "Europe/Moscow",
+    "population": 78633,
+    "tourism_season": "Июнь-Август"
+  },
+  "Глубинное": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Vladivostok",
+    "population": null,
+    "tourism_season": "Июль-Август"
+  },
+  "Гомзино": {
+    "federal_district": "Центральный",
+    "timezone": "Europe/Moscow",
+    "population": 58891,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Горно-Алтайск": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Barnaul",
+    "population": 63214,
+    "tourism_season": "Июнь-Август"
+  },
+  "Городовиковск": {
+    "federal_district": "Южный",
+    "timezone": "Europe/Moscow",
+    "population": 9809,
+    "tourism_season": "Апрель-Октябрь"
+  },
+  "Горячинск": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Irkutsk",
+    "population": null,
+    "tourism_season": "Июнь-Август"
+  },
+  "Грозный": {
+    "federal_district": null,
+    "timezone": "Europe/Moscow",
+    "population": 297137,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Гузерипль": {
+    "federal_district": "Южный",
+    "timezone": "Europe/Moscow",
+    "population": 109,
+    "tourism_season": "Апрель-Октябрь"
+  },
+  "Дальнегорск": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Vladivostok",
+    "population": 38424,
+    "tourism_season": "Июль-Август"
+  },
+  "Дальнереченск": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Vladivostok",
+    "population": 28300,
+    "tourism_season": "Июль-Август"
+  },
+  "Даховская": {
+    "federal_district": "Южный",
+    "timezone": "Europe/Moscow",
+    "population": null,
+    "tourism_season": "Апрель-Октябрь"
+  },
+  "Делянкир": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Magadan",
+    "population": null,
+    "tourism_season": "Июль-Август"
+  },
+  "Демянск": {
+    "federal_district": "Северо-Западный",
+    "timezone": "Europe/Moscow",
+    "population": 5693,
+    "tourism_season": "Июнь-Август"
+  },
+  "Дербент": {
+    "federal_district": "Северо-Кавказский",
+    "timezone": "Europe/Moscow",
+    "population": 105965,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Джарджан": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Yakutsk",
+    "population": null,
+    "tourism_season": "Июль-Август"
+  },
+  "Долгопрудный": {
+    "federal_district": "Центральный",
+    "timezone": "Europe/Moscow",
+    "population": 68259,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Дондуковская": {
+    "federal_district": "Южный",
+    "timezone": "Europe/Moscow",
+    "population": 6609,
+    "tourism_season": "Апрель-Октябрь"
+  },
+  "Дубна": {
+    "federal_district": "Центральный",
+    "timezone": "Europe/Moscow",
+    "population": 60604,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Дуван": {
+    "federal_district": "Приволжский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": 3710,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Дюртюли": {
+    "federal_district": "Приволжский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": 31087,
+    "tourism_season": "Май-Сентябрь"
   },
   "Екатеринбург": {
     "federal_district": "Уральский",
-    "timezone": "UTC+5",
-    "population": 1500000,
+    "timezone": "Asia/Yekaterinburg",
+    "population": 1495066,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Екатеринославка": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Yakutsk",
+    "population": 10178,
+    "tourism_season": "Июль-Август"
+  },
+  "Ефимовский": {
+    "federal_district": "Северо-Западный",
+    "timezone": "Europe/Moscow",
+    "population": 3622,
+    "tourism_season": "Июнь-Август"
+  },
+  "Жиганск": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Yakutsk",
+    "population": 3237,
+    "tourism_season": "Июль-Август"
+  },
+  "Завитинск": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Yakutsk",
+    "population": 13198,
+    "tourism_season": "Июль-Август"
+  },
+  "Залукокоаже": {
+    "federal_district": null,
+    "timezone": "Europe/Moscow",
+    "population": 9997,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Зея": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Yakutsk",
+    "population": 26999,
+    "tourism_season": "Июль-Август"
+  },
+  "Зилаир": {
+    "federal_district": "Приволжский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": 5872,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Змеиногорск": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Barnaul",
+    "population": 11514,
+    "tourism_season": "Июнь-Август"
+  },
+  "Зырянка": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Magadan",
+    "population": 3627,
+    "tourism_season": "Июль-Август"
+  },
+  "Игнашино": {
+    "federal_district": "Северо-Западный",
+    "timezone": "Europe/Moscow",
+    "population": null,
+    "tourism_season": "Июнь-Август"
+  },
+  "Игра": {
+    "federal_district": null,
+    "timezone": "Europe/Samara",
+    "population": 22033,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Ижма": {
+    "federal_district": "Северо-Западный",
+    "timezone": "Europe/Moscow",
+    "population": 3599,
+    "tourism_season": "Июнь-Август"
+  },
+  "Избербаш": {
+    "federal_district": "Северо-Кавказский",
+    "timezone": "Europe/Moscow",
+    "population": 42121,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Инсар": {
+    "federal_district": "Приволжский",
+    "timezone": "Europe/Moscow",
+    "population": 8837,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Ирбит": {
+    "federal_district": "Уральский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": 41647,
     "tourism_season": "Май-Сентябрь"
   },
   "Иркутск": {
     "federal_district": "Сибирский",
-    "timezone": "UTC+8",
-    "population": 620000,
+    "timezone": "Asia/Irkutsk",
+    "population": 623869,
+    "tourism_season": "Июнь-Август"
+  },
+  "Йошкар-Ола": {
+    "federal_district": "Приволжский",
+    "timezone": "Europe/Moscow",
+    "population": 268272,
     "tourism_season": "Май-Сентябрь"
   },
-  "Тольятти": {
+  "Кабанск": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Irkutsk",
+    "population": 6257,
+    "tourism_season": "Июнь-Август"
+  },
+  "Кайластуй": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Chita",
+    "population": null,
+    "tourism_season": "Июнь-Август"
+  },
+  "Калуга": {
+    "federal_district": "Центральный",
+    "timezone": "Europe/Moscow",
+    "population": 340851,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Канаш": {
+    "federal_district": null,
+    "timezone": "Europe/Moscow",
+    "population": 49886,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Канчалан": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Anadyr",
+    "population": null,
+    "tourism_season": "Июль-Август"
+  },
+  "Карлыханово": {
     "federal_district": "Приволжский",
-    "timezone": "UTC+0",
-    "population": 662000,
-    "tourism_season": "Круглогодично"
+    "timezone": "Asia/Yekaterinburg",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Касумкент": {
+    "federal_district": "Северо-Кавказский",
+    "timezone": "Europe/Moscow",
+    "population": 12225,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Качканар": {
+    "federal_district": "Уральский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": 43983,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Кизляр": {
+    "federal_district": "Северо-Кавказский",
+    "timezone": "Europe/Moscow",
+    "population": 50564,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Кириши": {
+    "federal_district": "Северо-Западный",
+    "timezone": "Europe/Moscow",
+    "population": 56190,
+    "tourism_season": "Июнь-Август"
+  },
+  "Княжпогост": {
+    "federal_district": "Северо-Западный",
+    "timezone": "Europe/Moscow",
+    "population": null,
+    "tourism_season": "Июнь-Август"
+  },
+  "Койгородок": {
+    "federal_district": "Северо-Западный",
+    "timezone": "Europe/Moscow",
+    "population": 2924,
+    "tourism_season": "Июнь-Август"
+  },
+  "Колымское Нагорье": {
+    "federal_district": null,
+    "timezone": "Asia/Magadan",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Кослан": {
+    "federal_district": "Северо-Западный",
+    "timezone": "Europe/Moscow",
+    "population": 2547,
+    "tourism_season": "Июнь-Август"
+  },
+  "Кострома": {
+    "federal_district": "Центральный",
+    "timezone": "Europe/Moscow",
+    "population": 277280,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Кочубей": {
+    "federal_district": null,
+    "timezone": "Europe/Moscow",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Красногорск": {
+    "federal_district": "Центральный",
+    "timezone": "Europe/Moscow",
+    "population": 92932,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Краснощёково": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Barnaul",
+    "population": 5463,
+    "tourism_season": "Июнь-Август"
+  },
+  "Красноярск": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Krasnoyarsk",
+    "population": 1090811,
+    "tourism_season": "Июнь-Август"
+  },
+  "Красный Чикой": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Chita",
+    "population": 6824,
+    "tourism_season": "Июнь-Август"
+  },
+  "Кулунда": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Barnaul",
+    "population": 15345,
+    "tourism_season": "Июнь-Август"
+  },
+  "Кумертау": {
+    "federal_district": "Приволжский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": 65321,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Кумух": {
+    "federal_district": "Северо-Кавказский",
+    "timezone": "Europe/Moscow",
+    "population": 2658,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Кунгуртуг": {
+    "federal_district": null,
+    "timezone": "Asia/Krasnoyarsk",
+    "population": 1820,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Куппа": {
+    "federal_district": "Северо-Кавказский",
+    "timezone": "Europe/Moscow",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Курумкан": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Irkutsk",
+    "population": 5848,
+    "tourism_season": "Июнь-Август"
+  },
+  "Кушва": {
+    "federal_district": "Уральский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": 34058,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Кушнарёнково": {
+    "federal_district": "Приволжский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": 10650,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Кызыл": {
+    "federal_district": null,
+    "timezone": "Asia/Krasnoyarsk",
+    "population": 116983,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Кызыл-Озёк": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Barnaul",
+    "population": null,
+    "tourism_season": "Июнь-Август"
+  },
+  "Кыкер": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Chita",
+    "population": null,
+    "tourism_season": "Июнь-Август"
+  },
+  "Кыра": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Chita",
+    "population": 4452,
+    "tourism_season": "Июнь-Август"
+  },
+  "Кырен": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Irkutsk",
+    "population": 5334,
+    "tourism_season": "Июнь-Август"
+  },
+  "Кытлым": {
+    "federal_district": "Уральский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": 872,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Кюсюр": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Yakutsk",
+    "population": null,
+    "tourism_season": "Июль-Август"
+  },
+  "Кяхта": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Irkutsk",
+    "population": 18431,
+    "tourism_season": "Июнь-Август"
+  },
+  "Лаишево": {
+    "federal_district": "Приволжский",
+    "timezone": "Europe/Moscow",
+    "population": 7744,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Ленск": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Yakutsk",
+    "population": 23694,
+    "tourism_season": "Июль-Август"
+  },
+  "Липецк": {
+    "federal_district": "Центральный",
+    "timezone": "Europe/Moscow",
+    "population": 509735,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Ломоносов": {
+    "federal_district": "Северо-Западный",
+    "timezone": "Europe/Moscow",
+    "population": 42505,
+    "tourism_season": "Июнь-Август"
+  },
+  "Луховицы": {
+    "federal_district": "Центральный",
+    "timezone": "Europe/Moscow",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Лучегорск": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Vladivostok",
+    "population": 21833,
+    "tourism_season": "Июль-Август"
+  },
+  "Магадан": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Magadan",
+    "population": 92782,
+    "tourism_season": "Июль-Август"
+  },
+  "Магдагачи": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Yakutsk",
+    "population": 11739,
+    "tourism_season": "Июль-Август"
+  },
+  "Мазаново": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Yakutsk",
+    "population": null,
+    "tourism_season": "Июль-Август"
+  },
+  "Малая Кема": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Vladivostok",
+    "population": null,
+    "tourism_season": "Июль-Август"
+  },
+  "Малое Сареево": {
+    "federal_district": "Центральный",
+    "timezone": "Europe/Moscow",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Малые Дербеты": {
+    "federal_district": "Южный",
+    "timezone": "Europe/Moscow",
+    "population": 5822,
+    "tourism_season": "Апрель-Октябрь"
+  },
+  "Мелеуз": {
+    "federal_district": "Приволжский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": 65362,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Мелихово": {
+    "federal_district": "Центральный",
+    "timezone": "Europe/Moscow",
+    "population": 3821,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Мензелинск": {
+    "federal_district": "Приволжский",
+    "timezone": "Europe/Moscow",
+    "population": 16858,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Михайловское": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Barnaul",
+    "population": 11467,
+    "tourism_season": "Июнь-Август"
+  },
+  "Могойтуй": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Chita",
+    "population": 8420,
+    "tourism_season": "Июнь-Август"
+  },
+  "Могоча": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Chita",
+    "population": 12647,
+    "tourism_season": "Июнь-Август"
+  },
+  "Можайск": {
+    "federal_district": "Центральный",
+    "timezone": "Europe/Moscow",
+    "population": 31557,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Можга": {
+    "federal_district": null,
+    "timezone": "Europe/Samara",
+    "population": 47270,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Молотов": {
+    "federal_district": "Приволжский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": 982419,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Монды": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Irkutsk",
+    "population": null,
+    "tourism_season": "Июнь-Август"
+  },
+  "Морки": {
+    "federal_district": "Приволжский",
+    "timezone": "Europe/Moscow",
+    "population": 9568,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Мугур-Аксы": {
+    "federal_district": null,
+    "timezone": "Asia/Krasnoyarsk",
+    "population": 4012,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Мужи": {
+    "federal_district": "Уральский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": 3209,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Муслюмово": {
+    "federal_district": "Приволжский",
+    "timezone": "Europe/Moscow",
+    "population": 7406,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Мухоршибирь": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Irkutsk",
+    "population": 5500,
+    "tourism_season": "Июнь-Август"
+  },
+  "Намцы": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Yakutsk",
+    "population": 7980,
+    "tourism_season": "Июль-Август"
+  },
+  "Наурская": {
+    "federal_district": null,
+    "timezone": "Europe/Moscow",
+    "population": 8550,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Находка": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Vladivostok",
+    "population": 146920,
+    "tourism_season": "Июль-Август"
+  },
+  "Немчиновка": {
+    "federal_district": "Центральный",
+    "timezone": "Europe/Moscow",
+    "population": 4938,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Нерчинский Завод": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Chita",
+    "population": 3012,
+    "tourism_season": "Июнь-Август"
+  },
+  "Нижнеангарск": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Irkutsk",
+    "population": 5493,
+    "tourism_season": "Июнь-Август"
+  },
+  "Нижний Камук": {
+    "federal_district": null,
+    "timezone": "Europe/Moscow",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Нижний Тагил": {
+    "federal_district": "Уральский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": 381116,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Новая Курба": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Irkutsk",
+    "population": null,
+    "tourism_season": "Июнь-Август"
+  },
+  "Новый Порт": {
+    "federal_district": "Уральский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Ноябрьск": {
+    "federal_district": "Уральский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": 110000,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Ныда": {
+    "federal_district": "Уральский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": 2078,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Нюрба": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Yakutsk",
+    "population": 9972,
+    "tourism_season": "Июль-Август"
+  },
+  "Озерки": {
+    "federal_district": "Северо-Западный",
+    "timezone": "Europe/Moscow",
+    "population": 95000,
+    "tourism_season": "Июнь-Август"
+  },
+  "Оймякон": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Magadan",
+    "population": 800,
+    "tourism_season": "Июль-Август"
+  },
+  "Окунев Нос": {
+    "federal_district": "Северо-Западный",
+    "timezone": "Europe/Moscow",
+    "population": null,
+    "tourism_season": "Июнь-Август"
+  },
+  "Оленёк": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Yakutsk",
+    "population": 2265,
+    "tourism_season": "Июль-Август"
+  },
+  "Олёкминский": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Yakutsk",
+    "population": null,
+    "tourism_season": "Июль-Август"
+  },
+  "Омолон": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Anadyr",
+    "population": null,
+    "tourism_season": "Июль-Август"
+  },
+  "Онгудай": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Barnaul",
+    "population": 5406,
+    "tourism_season": "Июнь-Август"
+  },
+  "Орлик": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Irkutsk",
+    "population": 2008,
+    "tourism_season": "Июнь-Август"
+  },
+  "Островное": {
+    "federal_district": "Приволжский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Охона": {
+    "federal_district": "Северо-Западный",
+    "timezone": "Europe/Moscow",
+    "population": null,
+    "tourism_season": "Июнь-Август"
+  },
+  "Павловка": {
+    "federal_district": "Центральный",
+    "timezone": "Europe/Moscow",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Петропавловка": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Irkutsk",
+    "population": 7582,
+    "tourism_season": "Июнь-Август"
+  },
+  "Питляр": {
+    "federal_district": "Уральский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Пограничный": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Vladivostok",
+    "population": 11930,
+    "tourism_season": "Июль-Август"
+  },
+  "Помоздино": {
+    "federal_district": "Северо-Западный",
+    "timezone": "Europe/Moscow",
+    "population": null,
+    "tourism_season": "Июнь-Август"
+  },
+  "Поярково": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Yakutsk",
+    "population": 7003,
+    "tourism_season": "Июль-Август"
+  },
+  "Псков": {
+    "federal_district": "Северо-Западный",
+    "timezone": "Europe/Moscow",
+    "population": 210501,
+    "tourism_season": "Июнь-Август"
+  },
+  "Пушкино": {
+    "federal_district": "Центральный",
+    "timezone": "Europe/Moscow",
+    "population": 102816,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Растьнаволок": {
+    "federal_district": "Северо-Западный",
+    "timezone": "Europe/Moscow",
+    "population": null,
+    "tourism_season": "Июнь-Август"
+  },
+  "Ребриха": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Barnaul",
+    "population": 8858,
+    "tourism_season": "Июнь-Август"
+  },
+  "Ревда": {
+    "federal_district": "Уральский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": 61785,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Родино": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Barnaul",
+    "population": 9537,
+    "tourism_season": "Июнь-Август"
+  },
+  "Рубцовск": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Barnaul",
+    "population": 161065,
+    "tourism_season": "Июнь-Август"
+  },
+  "Рязань": {
+    "federal_district": "Центральный",
+    "timezone": "Europe/Moscow",
+    "population": 538962,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Салават": {
+    "federal_district": "Приволжский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": 159893,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Салехард": {
+    "federal_district": "Уральский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": 49214,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Санага": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Irkutsk",
+    "population": null,
+    "tourism_season": "Июнь-Август"
+  },
+  "Сангар": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Yakutsk",
+    "population": 4633,
+    "tourism_season": "Июль-Август"
+  },
+  "Санкт-Петербург": {
+    "federal_district": "Северо-Западный",
+    "timezone": "Europe/Moscow",
+    "population": 5351935,
+    "tourism_season": "Июнь-Август"
+  },
+  "Сарапул": {
+    "federal_district": null,
+    "timezone": "Europe/Samara",
+    "population": 98830,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Сарыг-Сеп": {
+    "federal_district": null,
+    "timezone": "Asia/Krasnoyarsk",
+    "population": 4582,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Свиягино": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Vladivostok",
+    "population": null,
+    "tourism_season": "Июль-Август"
+  },
+  "Селты": {
+    "federal_district": null,
+    "timezone": "Europe/Samara",
+    "population": 5523,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Семёновский": {
+    "federal_district": "Северо-Западный",
+    "timezone": "Europe/Moscow",
+    "population": 295374,
+    "tourism_season": "Июнь-Август"
+  },
+  "Сергиев Посад": {
+    "federal_district": "Центральный",
+    "timezone": "Europe/Moscow",
+    "population": 109252,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Сергокала": {
+    "federal_district": "Северо-Кавказский",
+    "timezone": "Europe/Moscow",
+    "population": 8165,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Сковородино": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Yakutsk",
+    "population": 10007,
+    "tourism_season": "Июль-Август"
+  },
+  "Смидович": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Vladivostok",
+    "population": 5720,
+    "tourism_season": "Июль-Август"
+  },
+  "Смоленск": {
+    "federal_district": "Центральный",
+    "timezone": "Europe/Moscow",
+    "population": 330025,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Солонешное": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Barnaul",
+    "population": 4716,
+    "tourism_season": "Июнь-Август"
+  },
+  "Сорокино": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Barnaul",
+    "population": 6203,
+    "tourism_season": "Июнь-Август"
+  },
+  "Сосново": {
+    "federal_district": "Северо-Западный",
+    "timezone": "Europe/Moscow",
+    "population": 5923,
+    "tourism_season": "Июнь-Август"
+  },
+  "Сосуново": {
+    "federal_district": "Северо-Западный",
+    "timezone": "Europe/Moscow",
+    "population": null,
+    "tourism_season": "Июнь-Август"
+  },
+  "Среднеколымск": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Magadan",
+    "population": 3459,
+    "tourism_season": "Июль-Август"
+  },
+  "Сретенск": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Chita",
+    "population": 7698,
+    "tourism_season": "Июнь-Август"
+  },
+  "Старосубхангулово": {
+    "federal_district": "Приволжский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": 4351,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Стерлитамак": {
+    "federal_district": "Приволжский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": 267231,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Стойба": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Yakutsk",
+    "population": 895,
+    "tourism_season": "Июль-Август"
+  },
+  "Сухая": {
+    "federal_district": "Приволжский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Сысерть": {
+    "federal_district": "Уральский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": 21942,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Сёяха": {
+    "federal_district": "Уральский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Таборы": {
+    "federal_district": "Уральский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": 2062,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Тавда": {
+    "federal_district": "Уральский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": 39480,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Тазовский": {
+    "federal_district": "Уральский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": 5981,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Талдом": {
+    "federal_district": "Центральный",
+    "timezone": "Europe/Moscow",
+    "population": 13112,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Тамбей": {
+    "federal_district": "Уральский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Тамбов": {
+    "federal_district": "Центральный",
+    "timezone": "Europe/Moscow",
+    "population": 293661,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Танхой": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Irkutsk",
+    "population": 1028,
+    "tourism_season": "Июнь-Август"
+  },
+  "Танюрер": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Anadyr",
+    "population": null,
+    "tourism_season": "Июль-Август"
+  },
+  "Тарко-Сале": {
+    "federal_district": "Уральский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": 18568,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Таштып": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Krasnoyarsk",
+    "population": 6379,
+    "tourism_season": "Июнь-Август"
+  },
+  "Телемба": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Irkutsk",
+    "population": null,
+    "tourism_season": "Июнь-Август"
+  },
+  "Темников": {
+    "federal_district": "Приволжский",
+    "timezone": "Europe/Moscow",
+    "population": 8252,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Тетюши": {
+    "federal_district": "Приволжский",
+    "timezone": "Europe/Moscow",
+    "population": 11826,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Тлярата": {
+    "federal_district": "Северо-Кавказский",
+    "timezone": "Europe/Moscow",
+    "population": 1898,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Тогул": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Barnaul",
+    "population": 4937,
+    "tourism_season": "Июнь-Август"
+  },
+  "Томмот": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Yakutsk",
+    "population": 9034,
+    "tourism_season": "Июль-Август"
+  },
+  "Томск": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Tomsk",
+    "population": 574002,
+    "tourism_season": "Июнь-Август"
+  },
+  "Тонгулах": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Yakutsk",
+    "population": null,
+    "tourism_season": "Июль-Август"
+  },
+  "Торбеево": {
+    "federal_district": "Приволжский",
+    "timezone": "Europe/Moscow",
+    "population": 9138,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Тугулым": {
+    "federal_district": "Уральский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": 6139,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Тунгокочен": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Chita",
+    "population": null,
+    "tourism_season": "Июнь-Август"
+  },
+  "Тунка": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Irkutsk",
+    "population": null,
+    "tourism_season": "Июнь-Август"
+  },
+  "Тупик": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Chita",
+    "population": 996,
+    "tourism_season": "Июнь-Август"
+  },
+  "Туран": {
+    "federal_district": null,
+    "timezone": "Asia/Krasnoyarsk",
+    "population": 5528,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Туринск": {
+    "federal_district": "Уральский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": 18555,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Турочак": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Barnaul",
+    "population": 5514,
+    "tourism_season": "Июнь-Август"
+  },
+  "Тыгда": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Yakutsk",
+    "population": 3510,
+    "tourism_season": "Июль-Август"
+  },
+  "Тында": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Yakutsk",
+    "population": 37335,
+    "tourism_season": "Июль-Август"
+  },
+  "Тээли": {
+    "federal_district": null,
+    "timezone": "Asia/Krasnoyarsk",
+    "population": 3732,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Тюнярь": {
+    "federal_district": "Приволжский",
+    "timezone": "Europe/Moscow",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Угольный": {
+    "federal_district": "Уральский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": 30070,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Улаган": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Barnaul",
+    "population": 2623,
+    "tourism_season": "Июнь-Август"
+  },
+  "Улёты": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Chita",
+    "population": 6075,
+    "tourism_season": "Июнь-Август"
+  },
+  "Усть-Куйга": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Vladivostok",
+    "population": 1517,
+    "tourism_season": "Июль-Август"
+  },
+  "Усть-Мая": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Vladivostok",
+    "population": 3062,
+    "tourism_season": "Июль-Август"
+  },
+  "Усть-Нера": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Magadan",
+    "population": 9148,
+    "tourism_season": "Июль-Август"
+  },
+  "Усугли": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Chita",
+    "population": null,
+    "tourism_season": "Июнь-Август"
+  },
+  "Утта": {
+    "federal_district": "Южный",
+    "timezone": "Europe/Moscow",
+    "population": 806,
+    "tourism_season": "Апрель-Октябрь"
+  },
+  "Ушаково": {
+    "federal_district": "Центральный",
+    "timezone": "Europe/Moscow",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Халясавей": {
+    "federal_district": "Уральский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Харанор": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Chita",
+    "population": null,
+    "tourism_season": "Июнь-Август"
+  },
+  "Хасавюрт": {
+    "federal_district": "Северо-Кавказский",
+    "timezone": "Europe/Moscow",
+    "population": 126829,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Хилок": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Chita",
+    "population": 10627,
+    "tourism_season": "Июнь-Август"
+  },
+  "Хут": {
+    "federal_district": null,
+    "timezone": "Asia/Krasnoyarsk",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Цакир": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Irkutsk",
+    "population": null,
+    "tourism_season": "Июнь-Август"
+  },
+  "Чара": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Chita",
+    "population": 1974,
+    "tourism_season": "Июнь-Август"
+  },
+  "Чарышское": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Barnaul",
+    "population": 3371,
+    "tourism_season": "Июнь-Август"
+  },
+  "Челны": {
+    "federal_district": "Приволжский",
+    "timezone": "Europe/Moscow",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Черняево": {
+    "federal_district": "Северо-Западный",
+    "timezone": "Europe/Moscow",
+    "population": null,
+    "tourism_season": "Июнь-Август"
+  },
+  "Черусти": {
+    "federal_district": "Центральный",
+    "timezone": "Europe/Moscow",
+    "population": 2867,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Чистополь": {
+    "federal_district": "Приволжский",
+    "timezone": "Europe/Moscow",
+    "population": 62200,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Чита": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Chita",
+    "population": 349005,
+    "tourism_season": "Июнь-Август"
+  },
+  "Чишмы": {
+    "federal_district": "Приволжский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": 22000,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Чоя": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Barnaul",
+    "population": 1930,
+    "tourism_season": "Июнь-Август"
+  },
+  "Чулпаново": {
+    "federal_district": "Приволжский",
+    "timezone": "Europe/Moscow",
+    "population": null,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Чурапча": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Yakutsk",
+    "population": 7280,
+    "tourism_season": "Июль-Август"
+  },
+  "Шагонар": {
+    "federal_district": null,
+    "timezone": "Asia/Krasnoyarsk",
+    "population": 11415,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Шатой": {
+    "federal_district": null,
+    "timezone": "Europe/Moscow",
+    "population": 1775,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Шаховская": {
+    "federal_district": "Центральный",
+    "timezone": "Europe/Moscow",
+    "population": 10353,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Шебалино": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Barnaul",
+    "population": 4939,
+    "tourism_season": "Июнь-Август"
+  },
+  "Шелковская": {
+    "federal_district": null,
+    "timezone": "Europe/Moscow",
+    "population": 9602,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Шелопугино": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Chita",
+    "population": 3416,
+    "tourism_season": "Июнь-Август"
+  },
+  "Шимановск": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Yakutsk",
+    "population": 21466,
+    "tourism_season": "Июль-Август"
+  },
+  "Шугозеро": {
+    "federal_district": "Северо-Западный",
+    "timezone": "Europe/Moscow",
+    "population": null,
+    "tourism_season": "Июнь-Август"
+  },
+  "Шунтук": {
+    "federal_district": "Южный",
+    "timezone": "Europe/Moscow",
+    "population": null,
+    "tourism_season": "Апрель-Октябрь"
+  },
+  "Ытык-Кюёль": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Yakutsk",
+    "population": 7023,
+    "tourism_season": "Июль-Август"
+  },
+  "Эйик": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Yakutsk",
+    "population": null,
+    "tourism_season": "Июль-Август"
+  },
+  "Электросталь": {
+    "federal_district": "Центральный",
+    "timezone": "Europe/Moscow",
+    "population": 144387,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Электроугли": {
+    "federal_district": "Центральный",
+    "timezone": "Europe/Moscow",
+    "population": 20000,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Элиста": {
+    "federal_district": "Южный",
+    "timezone": "Europe/Moscow",
+    "population": 106971,
+    "tourism_season": "Апрель-Октябрь"
+  },
+  "Энгельс": {
+    "federal_district": "Приволжский",
+    "timezone": "Europe/Saratov",
+    "population": 196011,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Югорёнок": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Vladivostok",
+    "population": null,
+    "tourism_season": "Июль-Август"
+  },
+  "Южно-Сухокумск": {
+    "federal_district": "Северо-Кавказский",
+    "timezone": "Europe/Moscow",
+    "population": 10665,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Юрты": {
+    "federal_district": "Сибирский",
+    "timezone": "Asia/Irkutsk",
+    "population": 5902,
+    "tourism_season": "Июнь-Август"
+  },
+  "Юста": {
+    "federal_district": "Южный",
+    "timezone": "Europe/Moscow",
+    "population": null,
+    "tourism_season": "Апрель-Октябрь"
+  },
+  "Якутск": {
+    "federal_district": "Дальневосточный",
+    "timezone": "Asia/Yakutsk",
+    "population": 235600,
+    "tourism_season": "Июль-Август"
+  },
+  "Якша": {
+    "federal_district": "Северо-Западный",
+    "timezone": "Europe/Moscow",
+    "population": null,
+    "tourism_season": "Июнь-Август"
+  },
+  "Янаул": {
+    "federal_district": "Приволжский",
+    "timezone": "Asia/Yekaterinburg",
+    "population": 27963,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Ярославль": {
+    "federal_district": "Центральный",
+    "timezone": "Europe/Moscow",
+    "population": 608722,
+    "tourism_season": "Май-Сентябрь"
+  },
+  "Яшкуль": {
+    "federal_district": "Южный",
+    "timezone": "Europe/Moscow",
+    "population": 7203,
+    "tourism_season": "Апрель-Октябрь"
   }
 }

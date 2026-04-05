@@ -1,878 +1,355 @@
-# streamlit_app/app.py
 import streamlit as st
 import requests
 import pandas as pd
-import plotly.express as px
 from datetime import datetime, timedelta
 import json
-import os
 import time
 
-# Настройки
-API_URL = os.getenv('API_URL', "http://localhost:8000")
-DATE_FORMAT = "%Y-%m-%d"
+st.set_page_config(page_title="Weather Tourism API", layout="wide", page_icon="🌤️")
 
-def fetch_data(endpoint, params=None):
+API_BASE = "http://api:8000"
+
+@st.cache_data(ttl=300)
+def fetch_json(endpoint: str, params: dict = None, timeout: int = 30):
     try:
-        response = requests.get(f"{API_URL}{endpoint}", params=params)
+        url = f"{API_BASE}/{endpoint.lstrip('/')}"
+        response = requests.get(url, params=params, timeout=timeout)
         response.raise_for_status()
         return response.json()
+    except requests.exceptions.Timeout:
+        st.error("Таймаут при подключении к серверу")
+        return None
     except requests.exceptions.RequestException as e:
-        st.error(f"❌ Ошибка при получении данных: {str(e)}")
+        st.error(f"Ошибка подключения: {str(e)}")
+        return None
+    except json.JSONDecodeError:
+        st.error("Ошибка парсинга ответа сервера")
         return None
 
-def validate_city_coordinates(lat, lon):
+@st.cache_data(ttl=600)
+def get_cities_config():
+    result = fetch_json("/config/cities/full")
+    if result and "coordinates" in result:
+        return result["coordinates"], result.get("reference", {})
+    return {}, {}
+
+def post_json(endpoint: str, data: dict, timeout: int = 30):
     try:
-        response = requests.get(
-            f"{API_URL}/validate/city",
-            params={"lat": lat, "lon": lon},
-            timeout=5
-        )
+        url = f"{API_BASE}/{endpoint.lstrip('/')}"
+        response = requests.post(url, json=data, timeout=timeout)
         response.raise_for_status()
         return response.json()
     except requests.exceptions.RequestException as e:
-        error_msg = str(e)
-        try:
-            error_msg = response.json().get("detail", error_msg)
-        except:
-            pass
-        return {"valid": False, "message": f"Ошибка соединения: {error_msg}"}
-
-def add_city_coordinates(city_name, lat, lon, ru_name, federal_district, timezone, population, tourism_season):
-    try:
-        response = requests.post(
-            f"{API_URL}/config/city_coordinates",
-            json={
-                "city_name": city_name,
-                "lat": lat,
-                "lon": lon,
-                "ru_name": ru_name,
-                "federal_district": federal_district,
-                "timezone": timezone,
-                "population": population,
-                "tourism_season": tourism_season
-            },
-            timeout=10
-        )
-        response.raise_for_status()
-        return True, response.json().get("message", "Город успешно добавлен")
-    except requests.exceptions.RequestException as e:
-        error_msg = str(e)
-        try:
-            error_msg = response.json().get("detail", error_msg)
-        except:
-            pass
-        return False, f"Ошибка при добавлении города: {error_msg}"
-
-def get_city_coordinates():
-    return fetch_data("/config/city_coordinates")
-
-def get_full_cities_config():
-    """Получает объединённые данные о городах с сервера"""
-    try:
-        response = requests.get(f"{API_URL}/config/cities/full", timeout=10)
-        response.raise_for_status()
-        return response.json()
-    except requests.exceptions.RequestException as e:
-        st.error(f"❌ Ошибка при получении конфигурации городов: {str(e)}")
+        st.error(f"Ошибка: {str(e)}")
         return None
 
-def get_cities_reference():
-    """Получает справочник городов с сервера"""
-    return fetch_data("/config/cities_reference")
+def display_dataframe(df: pd.DataFrame, title: str = None, max_rows: int = 1000):
+    if df is None or df.empty:
+        st.warning("Нет данных для отображения")
+        return
+    if title:
+        st.subheader(title)
+    if len(df) > max_rows:
+        st.info(f"Показано первых {max_rows} записей из {len(df)}")
+        df = df.head(max_rows)
+    st.dataframe(df, use_container_width=True, hide_index=True)
 
-def get_weather_trends(city_key, days=7):
-    return fetch_data(f"/weather_trends/{city_key}", params={"days": days})
-
-def get_historical_data(city_key, start_date, end_date):
-    return fetch_data(f"/historical_data/{city_key}", params={
-        "start_date": start_date,
-        "end_date": end_date
-    })
+def format_metric(value, decimals: int = 1):
+    if value is None or pd.isna(value):
+        return "N/A"
+    return f"{round(float(value), decimals)}"
 
 def main():
-    st.set_page_config(
-        page_title="Погода",
-        page_icon="🌤️",
-        layout="wide",
-        initial_sidebar_state="expanded"
-    )
+    st.title("🌤️ Weather Tourism Dashboard")
     
-    # Заголовок
-    st.title("🌤️ Система анализа погоды для туристической компании")
+    cities_coords, cities_ref = get_cities_config()
+    city_options = {f"{data['name']} ({key})": key for key, data in cities_coords.items()}
     
-    # Боковая панель
-    st.sidebar.header("🌍 Управление городами")
-    
-    # Получение текущих координат городов
-        
-    st.sidebar.markdown("### 🔄 Загрузка данных...")
-    with st.spinner("Загружаем список городов..."):
-        cities_config = get_full_cities_config()
-
-    city_names = []
-    city_keys = {}
-    cities_reference = {}
-
-    if cities_config:
-        # Координаты: key -> {lat, lon, name}
-        if 'coordinates' in cities_config:
-            city_keys = {info['name']: key for key, info in cities_config['coordinates'].items()}
-            city_names = list(city_keys.keys())
-        
-        # Справочник: ru_name -> {federal_district, timezone, ...}
-        if 'reference' in cities_config:
-            cities_reference = cities_config['reference']
-        
-        st.sidebar.success(f"✅ Загружено {len(city_names)} городов")
-    else:
-        st.sidebar.warning("⚠️ Не удалось загрузить список городов")
-    
-    # Выбор города для просмотра деталей
-    selected_city = st.sidebar.selectbox(
-        "Выберите город для детального просмотра",
-        options=city_names,
-        index=0 if city_names else 0
-    )
-    
-    # Кнопка добавления города
-    if st.sidebar.button("➕ Добавить новый город", use_container_width=True):
-        st.session_state.show_add_city = True
-    
-    # Кнопка обновления
-    if st.sidebar.button("🔄 Обновить данные сейчас", use_container_width=True):
-        with st.spinner("Запуск обновления данных..."):
-            response = requests.post(f"{API_URL}/update")
-            if response.status_code == 200:
-                st.sidebar.success("Обновление запущено! Данные будут доступны через несколько минут.")
-            else:
-                st.sidebar.error("Не удалось запустить обновление данных.")
-    
-    # Получение статуса
-    status = fetch_data("/status")
-    if status:
-        st.sidebar.info(f"**Последнее обновление:**\n{status.get('last_update', 'Неизвестно')}")
-        st.sidebar.info(f"**Записей обработано:**\n{status.get('record_count', '0')}")
-    
-    # Основное содержимое
-    tab1, tab2, tab3, tab4, tab5 = st.tabs([
-        "📊 Обзор", 
-        "🌤️ Погода по городам", 
-        "📈 Агрегированные отчеты",
-        "📈 Тренды и история",
-        "⚙️ Настройки"
-    ])
-    
-    # Переменная состояния для формы добавления города
-    if 'show_add_city' not in st.session_state:
-        st.session_state.show_add_city = False
-    
-    with tab1:
-        st.header("Общая информация")
-        
-        # Получение данных
-        enriched_data = fetch_data("/enriched", params={"date": datetime.now().strftime("%Y%m%d")})
-        if enriched_data and 'data' in enriched_data:
-            df = pd.DataFrame(enriched_data['data'])
-            
-            # Проверяем, есть ли колонка 'date' и фильтруем по сегодняшней дате
-            if 'date' in df.columns:
-                today_str = datetime.now().strftime("%Y-%m-%d")
-                current_df = df[df['date'] == today_str]
-            else:
-                # Если колонки 'date' нет, используем все данные
-                current_df = df
-            
-            if not current_df.empty:
-                # Краткая статистика
-                col1, col2, col3, col4 = st.columns(4)
-                with col1:
-                    st.metric("🌍 Города", len(current_df))
-                with col2:
-                    # Используем колонку 'temperature' вместо 'temperature_avg'
-                    avg_temp = current_df['temperature'].mean()
-                    st.metric("🌡️ Ср. температура", f"{avg_temp:.1f}°C")
-                with col3:
-                    max_comfort = current_df['comfort_index'].max()
-                    st.metric("😊 Макс. комфорт", f"{max_comfort:.0f}")
-                with col4:
-                    active_season = len(current_df[current_df['tourist_season_match']])
-                    st.metric("✈️ Активный сезон", f"{active_season}/{len(current_df)}")
-                
-                # График комфортности
-                st.subheader("Индекс комфортности по городам")
-                if 'city_name' in current_df.columns and 'comfort_index' in current_df.columns:
-                    fig = px.bar(
-                        current_df, 
-                        x='city_name', 
-                        y='comfort_index',
-                        color='comfort_index',
-                        color_continuous_scale='RdYlGn',
-                        range_color=[0, 100],
-                        labels={'comfort_index': 'Индекс комфортности', 'city_name': 'Город'}
-                    )
-                    fig.update_layout(
-                        xaxis_title="Город",
-                        yaxis_title="Индекс комфортности",
-                        coloraxis_colorbar_title="Комфорт"
-                    )
-                    st.plotly_chart(fig, use_container_width=True)
-                else:
-                    st.warning("Нет необходимых колонок для отображения графика комфортности")
-            
-            # Топ рекомендаций
-            st.subheader("Топ рекомендации для турагентств")
-            recommendations = fetch_data("/aggregated/travel_recommendations")
-            if recommendations and 'data' in recommendations:
-                for rec in recommendations['data']:
-                    if rec['category'] == 'top_destination':
-                        st.success(f"✅ **{rec['city']}**: {rec['recommendation']}")
-                    elif rec['category'] == 'stay_home':
-                        st.warning(f"⚠️ **{rec['city']}**: {rec['recommendation']}")
-                    elif rec['category'] == 'special':
-                        st.info(f"ℹ️ **{rec['city']}**: {rec['recommendation']}")
-        
-        # Если нет данных
-        else:
-            st.warning("Данные о погоде не найдены. Нажмите кнопку 'Обновить данные сейчас' в боковой панели.")
-    
-    with tab2:
-        st.header("Детали по погоде в городах")
-        
-        # Проверяем, есть ли выбранный город
-        if selected_city and selected_city in city_names:
-            city_key = city_keys[selected_city]
-            
-            # Попробуем получить данные за последние 7 дней для выбранного города
-            start_date = (datetime.now() - timedelta(days=7)).strftime("%Y-%m-%d")
-            end_date = datetime.now().strftime("%Y-%m-%d")
-            
-            # Сначала пробуем получить расширенные данные за период
-            enriched_data_period = fetch_data("/enriched", params={
-                "date": datetime.now().strftime("%Y%m%d"),
-                "city": selected_city,
-                "start_date": start_date,
-                "end_date": end_date
-            })
-            
-            if enriched_data_period and 'data' in enriched_data_period:
-                df_period = pd.DataFrame(enriched_data_period['data'])
-                
-                if not df_period.empty and 'date' in df_period.columns:
-                    # Проверяем, есть ли данные за несколько дней
-                    unique_dates = df_period['date'].nunique()
-                    
-                    if unique_dates > 1:
-                        # Отображение информации о выбранном городе за несколько дней
-                        st.subheader(f"🌤️ Погода в {selected_city} (Последние 7 дней)")
-                        
-                        # График температуры
-                        if 'date' in df_period.columns and 'temperature' in df_period.columns:
-                            temp_fig = px.line(
-                                df_period,
-                                x='date',
-                                y='temperature',
-                                title="Температура за последние 7 дней",
-                                labels={'temperature': 'Температура (°C)', 'date': 'Дата'}
-                            )
-                            st.plotly_chart(temp_fig, use_container_width=True)
-                        
-                        # График комфортности
-                        if 'date' in df_period.columns and 'comfort_index' in df_period.columns:
-                            comfort_fig = px.line(
-                                df_period,
-                                x='date',
-                                y='comfort_index',
-                                title="Индекс комфортности за последние 7 дней",
-                                markers=True,
-                                labels={'comfort_index': 'Индекс комфортности', 'date': 'Дата'}
-                            )
-                            st.plotly_chart(comfort_fig, use_container_width=True)
-                        
-                        # Таблица данных за неделю
-                        st.subheader("Детали за неделю")
-                        # Выбираем нужные колонки
-                        display_cols = ['date', 'temperature', 'feels_like', 'humidity', 'wind_speed', 'comfort_index', 'weather_description', 'recommended_activity']
-                        available_cols = [col for col in display_cols if col in df_period.columns]
-                        display_df = df_period[available_cols].copy()
-                        display_df = display_df.sort_values('date', ascending=False)
-                        
-                        st.dataframe(
-                            display_df,
-                            hide_index=True,
-                            column_config={
-                                "temperature": st.column_config.NumberColumn(
-                                    "Темп.",
-                                    format="%.1f°C"
-                                ),
-                                "feels_like": st.column_config.NumberColumn(
-                                    "Ощущается как",
-                                    format="%.1f°C"
-                                ),
-                                "humidity": st.column_config.NumberColumn(
-                                    "Влажность (%)"
-                                ),
-                                "wind_speed": st.column_config.NumberColumn(
-                                    "Ветер (м/с)",
-                                    format="%.1f"
-                                ),
-                                "comfort_index": st.column_config.ProgressColumn(
-                                    "Комфортность",
-                                    format="%.0f",
-                                    min_value=0,
-                                    max_value=100
-                                )
-                            }
-                        )
-                    
-                    # Отображение текущей информации (если есть)
-                    current_data = df_period[df_period['date'] == datetime.now().strftime("%Y-%m-%d")]
-                    if not current_data.empty:
-                        st.subheader(f"Текущая погода в {selected_city}")
-                        current_row = current_data.iloc[0]
-                        col1, col2, col3 = st.columns(3)
-                        with col1:
-                            st.metric("Температра", f"{current_row.get('temperature', 'N/A')}°C")
-                        with col2:
-                            st.metric("Влажность", f"{current_row.get('humidity', 'N/A')}%")
-                        with col3:
-                            st.metric("Ветер", f"{current_row.get('wind_speed', 'N/A')} м/с")
-                        
-                        comfort_val = current_row.get('comfort_index', 0)
-                        st.progress(int(comfort_val) if not pd.isna(comfort_val) else 0, text=f"Индекс комфортности: {comfort_val if not pd.isna(comfort_val) else 0}/100")
-                        st.info(f"**Описание погоды:** {current_row.get('weather_description', 'N/A')}")
-                        st.info(f"**Рекомендуемая активность:** {current_row.get('recommended_activity', 'N/A')}")
-                else:
-                    st.warning(f"Нет данных за выбранный период для {selected_city}")
-            else:
-                # Если расширенный API не поддерживает фильтрацию по дате, получаем текущие данные
-                enriched_data = fetch_data("/enriched", params={"date": datetime.now().strftime("%Y%m%d")})
-                if enriched_data and 'data' in enriched_data:
-                    df = pd.DataFrame(enriched_data['data'])
-                    city_data = df[df['city_name'] == selected_city]
-                    
-                    if not city_data.empty:
-                        st.subheader(f"Текущая погода в {selected_city}")
-                        current_row = city_data.iloc[0]
-                        col1, col2, col3 = st.columns(3)
-                        with col1:
-                            st.metric("Температура", f"{current_row.get('temperature', 'N/A')}°C")
-                        with col2:
-                            st.metric("Влажность", f"{current_row.get('humidity', 'N/A')}%")
-                        with col3:
-                            st.metric("Ветер", f"{current_row.get('wind_speed', 'N/A')} м/с")
-                        
-                        comfort_val = current_row.get('comfort_index', 0)
-                        st.progress(int(comfort_val) if not pd.isna(comfort_val) else 0, text=f"Индекс комфортности: {comfort_val if not pd.isna(comfort_val) else 0}/100")
-                        st.info(f"**Описание погоды:** {current_row.get('weather_description', 'N/A')}")
-                        st.info(f"**Рекомендуемая активность:** {current_row.get('recommended_activity', 'N/A')}")
-                    else:
-                        st.warning(f"Нет данных для {selected_city}")
-                else:
-                    st.warning(f"Нет данных для {selected_city}")
-        else:
-            st.warning("Выберите город для просмотра деталей")
-    
-    with tab3:
-        st.header("Агрегированные отчеты")
-        
-        report_type = st.selectbox(
-            "Выберите тип отчета",
-            ["city_rating", "district_summary", "travel_recommendations"],
-            format_func=lambda x: {
-                "city_rating": "Рейтинг городов для туризма",
-                "district_summary": "Сводка по федеральным округам",
-                "travel_recommendations": "Рекомендации для турагентств"
-            }.get(x, x)
-        )
-        
-        report_data = fetch_data(f"/aggregated/{report_type}")
-        if report_data and 'data' in report_data:
-            if report_type == "city_rating":
-                st.subheader("🏆 Рейтинг городов для туризма")
-                df = pd.DataFrame(report_data['data'])
-                
-                # Проверяем, есть ли колонка 'Рейтинг', если нет - добавляем
-                if 'Рейтинг' not in df.columns:
-                    df['Рейтинг'] = range(1, len(df) + 1)
-                
-                # Проверяем, есть ли колонка 'temperature', если нет - используем 'temperature_avg' или другую
-                temp_col = 'temperature' if 'temperature' in df.columns else ('temperature_avg' if 'temperature_avg' in df.columns else None)
-                
-                display_cols = ['Рейтинг', 'city_name']
-                if temp_col:
-                    display_cols.append(temp_col)
-                display_cols.extend(['comfort_index', 'recommended_activity', 'weather_recommendation'])
-                
-                available_display_cols = [col for col in display_cols if col in df.columns]
-                
-                st.data_editor(
-                    df[available_display_cols],
-                    hide_index=True,
-                    column_config={
-                        "comfort_index": st.column_config.ProgressColumn(
-                            "Комфортность",
-                            format="%.0f",
-                            min_value=0,
-                            max_value=100
-                        ),
-                        "Рейтинг": st.column_config.NumberColumn(
-                            "Позиция",
-                            help="Позиция в рейтинге"
-                        )
-                    }
-                )
-                
-                if 'city_name' in df.columns and 'comfort_index' in df.columns:
-                    fig = px.pie(
-                        df,
-                        names='city_name',
-                        values='comfort_index',
-                        title="Доля комфортности по городам",
-                        hole=0.4
-                    )
-                    st.plotly_chart(fig, use_container_width=True)
-                else:
-                    st.warning("Недостаточно данных для построения диаграммы")
-            
-            elif report_type == "district_summary":
-                st.subheader("📊 Сводка по федеральным округам")
-                df = pd.DataFrame(report_data['data'])
-                
-                st.data_editor(
-                    df,
-                    hide_index=True,
-                    column_config={
-                        "comfort_ratio": st.column_config.ProgressColumn(
-                            "Доля комфортных городов",
-                            format="%.1f%%",
-                            min_value=0,
-                            max_value=100
-                        ),
-                        "avg_temperature": st.column_config.NumberColumn(
-                            "Средняя температура",
-                            format="%.1f °C"
-                        )
-                    }
-                )
-                
-                if 'federal_district' in df.columns and 'comfort_ratio' in df.columns:
-                    fig = px.bar(
-                        df,
-                        x='federal_district',
-                        y='comfort_ratio',
-                        color='general_recommendation',
-                        title="Комфортность по федеральным округам",
-                        labels={
-                            'federal_district': 'Федеральный округ',
-                            'comfort_ratio': 'Доля комфортных городов (%)'
-                        }
-                    )
-                    st.plotly_chart(fig, use_container_width=True)
-                else:
-                    st.warning("Недостаточно данных для построения графика")
-            
-            elif report_type == "travel_recommendations":
-                st.subheader("📝 Рекомендации для турагентств")
-                df = pd.DataFrame(report_data['data'])
-                
-                # Группировка по категориям
-                categories = {
-                    "top_destination": "🏆 Топ направления",
-                    "stay_home": "🏠 Оставайтесь дома",
-                    "special": "ℹ️ Специальные рекомендации"
-                }
-                
-                for category, title in categories.items():
-                    category_df = df[df['category'] == category]
-                    if not category_df.empty:
-                        st.subheader(title)
-                        for _, row in category_df.iterrows():
-                            with st.expander(f"**{row['city']}**: {row['reason']}"):
-                                st.write(row['recommendation'])
-    
-    with tab4:
-        st.header("📈 Тренды и исторические данные")
-        
-        if selected_city and selected_city in city_names:
-            city_key = city_keys[selected_city]
-            
-            col1, col2 = st.columns(2)
-            with col1:
-                days = st.slider("Количество дней для анализа трендов", 1, 30, 7)
-            
-            with col2:
-                if st.button("📊 Получить тренды погоды", use_container_width=True):
-                    with st.spinner("Получение данных о трендах..."):
-                        trends = get_weather_trends(city_key, days)
-                        
-                        if trends:
-                            st.subheader(f"Тренды погоды в {selected_city} за последние {days} дней")
-                            
-                            # Отображение трендов
-                            trends_data = trends['trends']
-                            col1, col2, col3 = st.columns(3)
-                            with col1:
-                                avg_temp = trends_data.get('avg_temperature', 'N/A')
-                                temp_trend = trends_data.get('temperature_trend', 'Нет данных')
-                                st.metric("Средняя темп.", f"{avg_temp}°C", 
-                                         f"Тренд: {temp_trend}")
-                                st.metric("Макс. темп.", f"{trends_data.get('max_temperature', 'N/A')}°C")
-                            with col2:
-                                st.metric("Средняя влажность", f"{trends_data.get('avg_humidity', 'N/A')}%")
-                                st.metric("Средний ветер", f"{trends_data.get('avg_wind_speed', 'N/A')} м/с")
-                            with col3:
-                                st.metric("Средний комфорт", f"{trends_data.get('avg_comfort_index', 'N/A')}/100")
-                                st.metric("Дней с осадками", f"{trends_data.get('days_with_precipitation', 'N/A')}/{trends_data.get('total_days', 'N/A')}")
-                            
-                            # График трендов если есть данные
-                            if all(key in trends_data for key in ['avg_temperature', 'max_temperature', 'avg_comfort_index']):
-                                trend_df = pd.DataFrame({
-                                    'Метрика': ['Средняя темп.', 'Мин. темп.', 'Макс. темп.', 'Комфортность'],
-                                    'Значение': [
-                                        trends_data.get('avg_temperature', 0),
-                                        trends_data.get('min_temperature', 0),
-                                        trends_data.get('max_temperature', 0),
-                                        trends_data.get('avg_comfort_index', 0)
-                                    ]
-                                })
-                                
-                                fig = px.bar(trend_df, x='Метрика', y='Значение', 
-                                            title="Основные показатели за период")
-                                st.plotly_chart(fig, use_container_width=True)
-                        else:
-                            st.warning("Нет данных о трендах для выбранного города")
-            
-            # Исторические данные
-            st.subheader("📊 Исторические данные")
-            col1, col2 = st.columns(2)
-            with col1:
-                start_date_hist = st.date_input("Начальная дата", 
-                                               value=datetime.now() - timedelta(days=7))
-            with col2:
-                end_date_hist = st.date_input("Конечная дата", 
-                                             value=datetime.now())
-            
-            if st.button("🔍 Получить исторические данные", use_container_width=True):
-                with st.spinner("Получение исторических данных..."):
-                    hist_data = get_historical_data(
-                        city_key, 
-                        start_date_hist.strftime("%Y-%m-%d"), 
-                        end_date_hist.strftime("%Y-%m-%d")
-                    )
-                    
-                    if hist_data and 'data' in hist_data:
-                        st.subheader(f"Исторические данные для {selected_city}")
-                        st.info(f"Период: {hist_data['date_range']}, Записей: {hist_data['total_records']}")
-                        
-                        hist_df = pd.DataFrame(hist_data['data'])
-                        
-                        if not hist_df.empty:
-                            # Графики
-                            col1, col2 = st.columns(2)
-                            with col1:
-                                if 'date' in hist_df.columns and 'temperature' in hist_df.columns:
-                                    temp_fig = px.line(
-                                        hist_df,
-                                        x='date',
-                                        y='temperature',
-                                        title="Температура за выбранный период"
-                                    )
-                                    st.plotly_chart(temp_fig, use_container_width=True)
-                                else:
-                                    st.warning("Нет данных для графика температуры")
-                            
-                            with col2:
-                                if 'date' in hist_df.columns and 'comfort_index' in hist_df.columns:
-                                    comfort_fig = px.line(
-                                        hist_df,
-                                        x='date',
-                                        y='comfort_index',
-                                        title="Комфортность за выбранный период",
-                                        markers=True
-                                    )
-                                    st.plotly_chart(comfort_fig, use_container_width=True)
-                                else:
-                                    st.warning("Нет данных для графика комфортности")
-                            
-                            # Таблица
-                            st.subheader("Детали")
-                            # Выбираем доступные колонки для отображения
-                            display_hist_cols = ['date', 'temperature', 'feels_like', 'humidity', 'wind_speed', 'comfort_index', 'precipitation', 'weather_description']
-                            available_hist_cols = [col for col in display_hist_cols if col in hist_df.columns]
-                            
-                            if available_hist_cols:
-                                display_hist_df = hist_df[available_hist_cols].copy()
-                                display_hist_df = display_hist_df.sort_values('date', ascending=False)
-                                
-                                st.dataframe(
-                                    display_hist_df,
-                                    hide_index=True,
-                                    column_config={
-                                        "temperature": st.column_config.NumberColumn(
-                                            "Темп.",
-                                            format="%.1f°C"
-                                        ),
-                                        "feels_like": st.column_config.NumberColumn(
-                                            "Ощущается",
-                                            format="%.1f°C"
-                                        ),
-                                        "humidity": st.column_config.NumberColumn(
-                                            "Влажность (%)"
-                                        ),
-                                        "wind_speed": st.column_config.NumberColumn(
-                                            "Ветер (м/с)",
-                                            format="%.1f"
-                                        ),
-                                        "comfort_index": st.column_config.ProgressColumn(
-                                            "Комфортность",
-                                            format="%.0f",
-                                            min_value=0,
-                                            max_value=100
-                                        ),
-                                        "precipitation": st.column_config.NumberColumn(
-                                            "Осадки (мм)",
-                                            format="%.1f"
-                                        )
-                                    }
-                                )
-                            else:
-                                st.warning("Нет подходящих колонок для отображения таблицы")
-                        else:
-                            st.warning("Нет исторических данных для отображения")
-                    else:
-                        st.warning("Нет исторических данных за указанный период")
-        else:
-            st.warning("Выберите город для просмотра трендов и исторических данных")
-    
-    with tab5:
-        st.header("⚙️ Настройки системы")
-        
-        if st.session_state.show_add_city:
-            st.subheader("➕ Добавить новый город")
-            
-            with st.form("add_city_form"):
-                col1, col2 = st.columns(2)
-                with col1:
-                    ru_name = st.text_input(
-                        "Русское название города*", 
-                        help="Например: Москва",
-                        placeholder="Введите русское название города"
-                    )
-                    city_name = st.text_input(
-                        "Ключ для API*", 
-                        help="Например: Moscow (латиницей, уникальный)",
-                        placeholder="Введите уникальный ключ для API"
-                    )
-                    federal_district = st.text_input(
-                        "Федеральный округ", 
-                        value="Неизвестно",
-                        help="Например: Центральный"
-                    )
-                    population = st.number_input(
-                        "Население", 
-                        value=0,
-                        help="Численность населения (опционально)"
-                    )
-                with col2:
-                    lat = st.number_input(
-                        "Широта (latitude)*", 
-                        value=55.7558,
-                        help="Координаты широты",
-                        format="%.4f"
-                    )
-                    lon = st.number_input(
-                        "Долгота (longitude)*", 
-                        value=37.6176,
-                        help="Координаты долготы",
-                        format="%.4f"
-                    )
-                    timezone = st.text_input(
-                        "Часовой пояс", 
-                        value="UTC+0",
-                        help="Например: UTC+3"
-                    )
-                    tourism_season = st.text_input(
-                        "Сезон туризма", 
-                        value="Круглогодично",
-                        help="Например: Май-Сентябрь"
-                    )
-                
-                # Пометим обязательные поля в комментариях или добавим проверки в submit
-                st.caption("* - Обязательные поля")
-                
-                col1, col2 = st.columns([1, 4])
-                with col1:
-                    check_button = st.form_submit_button("Проверить координаты")
-                with col2:
-                    submit_button = st.form_submit_button("Добавить город")
-                
-                # Проверка координат при нажатии кнопки проверки
-                if check_button:
-                    if not (lat and lon):
-                        st.warning("Пожалуйста, введите координаты")
-                    else:
-                        with st.spinner("Проверка координат в Open-Meteo..."):
-                            validation = validate_city_coordinates(lat, lon)
-                        
-                        if validation.get('valid', False):
-                            st.success(validation.get('message', 'Координаты действительны!'))
-                            if 'details' in validation:
-                                details = validation['details']
-                                st.info(f"**Текущая погода:** {details.get('current_temp', 'N/A')}°C, "
-                                    f"Часовой пояс: {details.get('timezone', 'N/A')}")
-                        else:
-                            st.error(validation.get('message', 'Координаты недействительны'))
-                
-                # Добавление города при нажатии основной кнопки
-                if submit_button:
-                    # Проверим обязательные поля
-                    if not (ru_name and city_name and lat and lon):
-                        st.error("Пожалуйста, заполните все обязательные поля (*)")
-                    else:
-                        with st.spinner("Проверка координат в Open-Meteo..."):
-                            validation = validate_city_coordinates(lat, lon)
-                        
-                        if not validation.get('valid', False):
-                            st.error(validation.get('message', 'Координаты недействительны'))
-                        else:
-                            with st.spinner("Добавление города в систему..."):
-                                success, message = add_city_coordinates(
-                                    city_name, lat, lon, ru_name,
-                                    federal_district, timezone, population, tourism_season
-                                )
-                            
-                            if success:
-                                st.success(message)
-                                st.balloons()
-                                
-                                # 🔁 Обновляем данные городов после добавления
-                                with st.spinner("Обновляем список городов..."):
-                                    time.sleep(1)  # Даём серверу время на сохранение
-                                    st.rerun()  # Перезагружаем приложение для обновления списка
-                                
-                                col1, col2 = st.columns(2)
-                                with col1:
-                                    if st.button("Собрать данные для этого города сейчас", use_container_width=True):
-                                        with st.spinner("Запуск сбора данных..."):
-                                            response = requests.post(f"{API_URL}/update/city/{city_name}")
-                                            if response.status_code == 200:
-                                                result = response.json()
-                                                st.success(result.get('message', 'Сбор данных запущен'))
-                                                st.info("Данные будут доступны через несколько минут")
-                                            else:
-                                                st.error("Не удалось запустить сбор данных")
-                                
-                                with col2:
-                                    if st.button("Обновить все данные", use_container_width=True):
-                                        with st.spinner("Запуск обновления данных..."):
-                                            response = requests.post(f"{API_URL}/update")
-                                            if response.status_code == 200:
-                                                st.success("Запущен сбор данных для всех городов, включая новый")
-                                                st.info("Данные будут доступны через несколько минут")
-                                            else:
-                                                st.error("Не удалось запустить сбор данных")
-                            
-                            else:
-                                st.error(message)
-            
-            # Кнопка для закрытия формы
-            if st.button("Закрыть форму добавления", use_container_width=True):
-                st.session_state.show_add_city = False
-                st.rerun()
-
-        else:
-            st.subheader("Управление городами")
-            
-            # Отображение текущих городов
-                    
-        if cities_config and 'coordinates' in cities_config:
-            st.write("Текущие города в системе:")
-            
-            # Объединяем координаты и справочник для отображения
-            cities_list = []
-            for key, coord_info in cities_config['coordinates'].items():
-                ref_info = cities_reference.get(coord_info['name'], {})
-                cities_list.append({
-                    "Город": coord_info['name'],
-                    "Ключ": key,
-                    "Широта": coord_info['lat'],
-                    "Долгота": coord_info['lon'],
-                    "Округ": ref_info.get('federal_district', '—'),
-                    "Население": ref_info.get('population', '—'),
-                    "Сезон": ref_info.get('tourism_season', '—')
-                })
-            
-            cities_df = pd.DataFrame(cities_list)
-            
-            st.data_editor(
-                cities_df,
-                hide_index=True,
-                disabled=["Город", "Ключ", "Широта", "Долгота"],  # Только для просмотра
-                column_config={
-                    "Город": st.column_config.TextColumn("Город", width="medium"),
-                    "Ключ": st.column_config.TextColumn("Ключ", width="small"),
-                    "Широта": st.column_config.NumberColumn("Широта", format="%.4f", width="small"),
-                    "Долгота": st.column_config.NumberColumn("Долгота", format="%.4f", width="small"),
-                    "Округ": st.column_config.TextColumn("Округ", width="medium"),
-                    "Население": st.column_config.NumberColumn("Население", width="small"),
-                    "Сезон": st.column_config.TextColumn("Сезон", width="medium")
-                }
-            )
-            
-            st.info(f"📊 Всего городов: {len(cities_df)}")
-        else:
-            st.warning("Не удалось загрузить список городов с сервера")
-            if st.button("🔄 Попробовать снова"):
-                st.rerun()
-            # Кнопка для отображения формы добавления
-            if st.button("➕ Добавить новый город", use_container_width=True):
-                st.session_state.show_add_city = True
-                st.rerun()
+    with st.sidebar:
+        st.header("⚙️ Настройки")
+        selected_city_label = st.selectbox("Выберите город", options=list(city_options.keys()), index=0 if city_options else None)
+        selected_city_key = city_options[selected_city_label] if selected_city_label else None
         
         st.divider()
+        nav = st.radio("Раздел", ["📊 Статус", "📈 Тренды погоды", "📅 Исторические данные", "📑 Агрегированные отчеты", "🔍 Поиск данных", "⚙️ Конфигурация"])
         
-        st.subheader("Техническая информация")
-        status = fetch_data("/status")
-        if status:
-            st.json({
-                "last_update": status.get('last_update', 'Неизвестно'),
-                "record_count": status.get('record_count', '0'),
-                "current_time": status.get('current_time', datetime.now().isoformat())
-            })
+        st.divider()
+        if st.button("🔄 Обновить данные"):
+            st.cache_data.clear()
+            st.rerun()
+    
+    if nav == "📊 Статус":
+        st.header("📊 Статус системы")
+        status = fetch_json("/status")
+        health = fetch_json("/health")
         
-        st.subheader("API Endpoints")
-        st.markdown("""
-        - `GET /raw/{date}` - RAW данные
-        - `GET /cleaned/{date}` - Очищенные данные
-        - `GET /enriched/{date}` - Обогащенные данные (фильтрация по городу/дате)
-        - `GET /aggregated/{report_type}` - Агрегированные отчеты
-        - `POST /update` - Запуск обновления данных
-        - `GET /status` - Статус системы
-        - `GET /validate/city` - Проверка координат
-        - `POST /config/city_coordinates` - Добавление нового города
-        - `POST /update/city/{city_key}` - Сбор данных для конкретного города
-        - `GET /weather_trends/{city_key}` - Тренды погоды
-        - `GET /historical_data/{city_key}` - Исторические данные
-        """)
+        col1, col2 = st.columns(2)
+        with col1:
+            st.subheader("Health Check")
+            if health:
+                status_badge = "🟢 Healthy" if health.get("status") == "healthy" else "🟡 Degraded"
+                st.markdown(f"**Status:** {status_badge}")
+                st.markdown(f"**Time:** {health.get('timestamp', 'N/A')}")
+                for check_name, check_data in health.get("checks", {}).items():
+                    badge = "🟢" if check_data.get("status") == "ok" else "🔴" if check_data.get("status") == "error" else "⚪"
+                    st.markdown(f"{badge} **{check_name}**: {check_data.get('status')}"+ (f" ({check_data.get('response_time_ms')}ms)" if 'response_time_ms' in check_data else ''))
+            else:
+                st.warning("Не удалось получить health check")
         
-        st.subheader("Системные настройки")
-        env_vars = {
-            "API_URL": API_URL,
-            "OPENMETEO_API": "https://api.open-meteo.com",
-            "DATA_DIRS": {
-                "RAW": os.getenv('RAW_DATA_DIR', 'data/raw/openmeteo_api'),
-                "CLEANED": os.getenv('CLEANED_DATA_DIR', 'data/cleaned'),
-                "ENRICHED": os.getenv('ENRICHED_DATA_DIR', 'data/enriched'),
-                "AGGREGATED": os.getenv('AGGREGATED_DATA_DIR', 'data/aggregated')
-            },
-            "EXTENDED_DATA": {
-                "PAST_DAYS": 2,
-                "FORECAST_DAYS": 14,
-                "TOTAL_RANGE": 16  # дней
-            }
+        with col2:
+            st.subheader("Database Stats")
+            if status and "databases" in status:
+                for db_name, db_info in status["databases"].items():
+                    with st.expander(f"🗄️ {db_name}", expanded=True):
+                        st.markdown(f"**Status:** {db_info.get('status', 'unknown')}")
+                        if db_info.get("status") == "ok":
+                            st.markdown(f"📊 Records: {db_info.get('records', 0):,}")
+                            st.markdown(f"📅 Range: {db_info.get('date_range', 'N/A')}")
+                            st.markdown(f"⚡ Query time: {db_info.get('query_time_ms', 0)}ms")
+            else:
+                st.warning("Не удалось получить статистику БД")
+        
+        st.divider()
+        st.subheader("📦 Cache Stats")
+        if status and "cache_stats" in status:
+            c1, c2 = st.columns(2)
+            c1.metric("App Cache", status["cache_stats"].get("app_cache_size", 0))
+            c2.metric("DB Cache", status["cache_stats"].get("db_cache_size", 0))
+    
+    elif nav == "📈 Тренды погоды" and selected_city_key:
+        st.header(f"📈 Тренды погоды: {cities_coords[selected_city_key]['name']}")
+        
+        days = st.slider("Период (дни)", min_value=1, max_value=90, value=7)
+        
+        if st.button("Загрузить тренды", type="primary"):
+            with st.spinner("Загрузка данных..."):
+                trends = fetch_json(f"/weather_trends/{selected_city_key}", params={"days": days})
+                if trends and "trends" in trends:
+                    t = trends["trends"]
+                    
+                    m1, m2, m3, m4 = st.columns(4)
+                    m1.metric("Средняя температура", f"{format_metric(t.get('avg_temperature'))}°C")
+                    m2.metric("Макс. температура", f"{format_metric(t.get('max_temperature'))}°C")
+                    m3.metric("Мин. температура", f"{format_metric(t.get('min_temperature'))}°C")
+                    m4.metric("Тренд", t.get("temperature_trend", "N/A"))
+                    
+                    m5, m6, m7, m8 = st.columns(4)
+                    m5.metric("Влажность", f"{format_metric(t.get('avg_humidity'))}%")
+                    m6.metric("Ветер", f"{format_metric(t.get('avg_wind_speed'))} м/с")
+                    m7.metric("Комфорт", f"{format_metric(t.get('avg_comfort_index'))}")
+                    m8.metric("Дней с осадками", t.get("days_with_precipitation", 0))
+                    
+                    st.info(f"📊 Всего записей: {t.get('total_records', 0)} | Период: {trends.get('period', 'N/A')}")
+                    
+                    raw_data = fetch_json("/enriched", params={
+                        "city": cities_coords[selected_city_key]["name"],
+                        "start_date": (datetime.now() - timedelta(days=days)).strftime("%Y-%m-%d"),
+                        "end_date": datetime.now().strftime("%Y-%m-%d"),
+                        "limit": 1000
+                    })
+                    if raw_data and "data" in raw_data and raw_data["data"]:
+                        df = pd.DataFrame(raw_data["data"])
+                        date_cols = [c for c in df.columns if "date" in c.lower()]
+                        if date_cols:
+                            df[date_cols[0]] = pd.to_datetime(df[date_cols[0]], errors="coerce")
+                        
+                        chart_cols = [c for c in ["temperature", "humidity", "wind_speed", "comfort_index", "precipitation"] if c in df.columns]
+                        if chart_cols:
+                            st.subheader("📉 Графики")
+                            for col in chart_cols:
+                                chart_df = df[[date_cols[0], col]].dropna().set_index(date_cols[0])
+                                st.line_chart(chart_df, y=col, use_container_width=True)
+                else:
+                    st.warning("Не удалось загрузить тренды или нет данных")
+    
+    elif nav == "📅 Исторические данные" and selected_city_key:
+        st.header(f"📅 Исторические данные: {cities_coords[selected_city_key]['name']}")
+        
+        col1, col2 = st.columns(2)
+        with col1:
+            start_date = st.date_input("Дата начала", value=datetime.now() - timedelta(days=30))
+        with col2:
+            end_date = st.date_input("Дата окончания", value=datetime.now())
+        
+        limit = st.slider("Лимит записей", min_value=100, max_value=50000, value=5000, step=100)
+        
+        if st.button("Загрузить данные", type="primary"):
+            if start_date > end_date:
+                st.error("Дата начала не может быть позже даты окончания")
+            else:
+                with st.spinner("Загрузка исторических данных..."):
+                    data = fetch_json(f"/historical_data/{selected_city_key}", params={
+                        "start_date": start_date.strftime("%Y-%m-%d"),
+                        "end_date": end_date.strftime("%Y-%m-%d")
+                    })
+                    if data and "data" in data:
+                        st.success(f"Загружено {data.get('total_records', 0)} записей")
+                        df = pd.DataFrame(data["data"])
+                        
+                        st.subheader("📊 Статистика")
+                        num_cols = df.select_dtypes(include="number").columns.tolist()
+                        if num_cols:
+                            st.dataframe(df[num_cols].describe(), use_container_width=True)
+                        
+                        display_dataframe(df, "📋 Данные", max_rows=limit)
+                        
+                        if "date" in df.columns and "temperature" in df.columns:
+                            st.subheader("🌡️ Температура по дням")
+                            chart_df = df[["date", "temperature"]].dropna().set_index("date")
+                            st.line_chart(chart_df, use_container_width=True)
+                    else:
+                        st.warning("Нет данных за выбранный период")
+    
+    elif nav == "📑 Агрегированные отчеты":
+        st.header("📑 Агрегированные отчеты")
+        
+        report_types = {
+            "city_rating": "🏆 Рейтинг городов",
+            "district_summary": "🗺️ Сводка по округам",
+            "travel_recommendations": "✈️ Рекомендации для путешествий"
         }
-        st.json(env_vars)
+        
+        selected_report = st.selectbox("Выберите тип отчета", options=list(report_types.keys()), format_func=lambda x: report_types[x])
+        
+        if st.button("Сформировать отчет", type="primary"):
+            with st.spinner("Генерация отчета..."):
+                result = fetch_json(f"/aggregated/{selected_report}")
+                if result and "data" in result:
+                    st.subheader(report_types[selected_report])
+                    df = pd.DataFrame(result["data"])
+                    display_dataframe(df, max_rows=2000)
+                    
+                    if "rating" in df.columns or "score" in df.columns or "comfort_index" in df.columns:
+                        metric_col = next((c for c in ["rating", "score", "comfort_index", "tourism_score"] if c in df.columns), None)
+                        if metric_col and "city_name" in df.columns:
+                            st.subheader("📊 Топ городов")
+                            top_df = df.nlargest(10, metric_col)[["city_name", metric_col]]
+                            st.bar_chart(top_df.set_index("city_name"), use_container_width=True)
+                else:
+                    st.warning("Не удалось загрузить отчет")
+    
+    elif nav == "🔍 Поиск данных":
+        st.header("🔍 Поиск и фильтрация данных")
+        
+        tab1, tab2, tab3 = st.tabs(["✨ Обогащенные данные", "🧹 Очищенные данные", "📦 Сырые данные"])
+        
+        with tab1:
+            st.subheader("Enriched Observations")
+            col1, col2, col3 = st.columns(3)
+            with col1:
+                search_city = st.text_input("Город", placeholder="Москва")
+            with col2:
+                search_start = st.date_input("С даты", value=None)
+            with col3:
+                search_end = st.date_input("По дату", value=None)
+            
+            search_limit = st.slider("Лимит", 100, 100000, 1000, 100)
+            
+            if st.button("Поиск", type="primary", key="search_enriched"):
+                params = {"limit": search_limit}
+                if search_city:
+                    params["city"] = search_city
+                if search_start:
+                    params["start_date"] = search_start.strftime("%Y-%m-%d")
+                if search_end:
+                    params["end_date"] = search_end.strftime("%Y-%m-%d")
+                
+                with st.spinner("Поиск..."):
+                    result = fetch_json("/enriched", params=params)
+                    if result and "data" in result:
+                        st.success(f"Найдено {result.get('record_count', 0)} записей")
+                        df = pd.DataFrame(result["data"])
+                        display_dataframe(df, max_rows=search_limit)
+                    else:
+                        st.warning("Нет результатов")
+        
+        with tab2:
+            st.subheader("Cleaned Weather Data")
+            clean_date = st.date_input("Дата", value=datetime.now(), key="clean_date")
+            if st.button("Загрузить очищенные данные", type="primary", key="load_cleaned"):
+                with st.spinner("Загрузка..."):
+                    result = fetch_json(f"/cleaned/{clean_date.strftime('%Y%m%d')}")
+                    if result and "data" in result:
+                        st.success(f"Загружено {result.get('record_count', 0)} записей")
+                        df = pd.DataFrame(result["data"])
+                        display_dataframe(df, max_rows=5000)
+                    else:
+                        st.warning("Нет данных за выбранную дату")
+        
+        with tab3:
+            st.subheader("Raw API Data")
+            raw_date = st.date_input("Дата", value=datetime.now(), key="raw_date")
+            if st.button("Загрузить сырые данные", type="primary", key="load_raw"):
+                with st.spinner("Загрузка..."):
+                    result = fetch_json(f"/raw/{raw_date.strftime('%Y%m%d')}")
+                    if result and "data" in result:
+                        st.success(f"Загружено файлов: {result.get('file_count', 0)}")
+                        with st.expander("📄 Просмотр данных", expanded=False):
+                            st.json(result["data"][:5] if isinstance(result["data"], list) else result["data"])
+                    else:
+                        st.warning("Нет данных за выбранную дату")
+    
+    elif nav == "⚙️ Конфигурация" and selected_city_key:
+        st.header("⚙️ Управление конфигурацией")
+        
+        tab1, tab2 = st.tabs(["📋 Справочник городов", "🔄 Обновление данных"])
+        
+        with tab1:
+            st.subheader("Координаты городов")
+            if cities_coords:
+                coords_df = pd.DataFrame([
+                    {"key": k, "name": v.get("name"), "lat": v.get("lat"), "lon": v.get("lon")}
+                    for k, v in cities_coords.items()
+                ])
+                st.dataframe(coords_df, use_container_width=True, hide_index=True)
+            
+            st.divider()
+            st.subheader("Доп. информация")
+            if cities_ref:
+                ref_df = pd.DataFrame([
+                    {"city": k, **v} for k, v in cities_ref.items()
+                ])
+                st.dataframe(ref_df, use_container_width=True, hide_index=True)
+        
+        with tab2:
+            st.subheader(f"Обновить данные для: {cities_coords[selected_city_key]['name']}")
+            st.warning("⚠️ Эта операция может занять несколько минут")
+            
+            if st.button("🚀 Запустить сбор данных", type="primary"):
+                with st.spinner("Запуск задачи в фоне..."):
+                    result = post_json(f"/update/city/{selected_city_key}", {})
+                    if result and result.get("status") == "queued":
+                        st.success(f"✅ {result.get('message')}")
+                        st.info(f"⏱️ Время обработки: {result.get('processing_time_ms', 0)}ms")
+                    else:
+                        st.error("Не удалось запустить задачу")
+            
+            st.divider()
+            st.subheader("🌐 Проверка координат")
+            col1, col2 = st.columns(2)
+            with col1:
+                test_lat = st.number_input("Широта", value=float(cities_coords[selected_city_key]["lat"]), step=0.01)
+            with col2:
+                test_lon = st.number_input("Долгота", value=float(cities_coords[selected_city_key]["lon"]), step=0.01)
+            
+            if st.button("Проверить"):
+                with st.spinner("Проверка..."):
+                    result = fetch_json("/validate/city", params={"lat": test_lat, "lon": test_lon})
+                    if result:
+                        if result.get("valid"):
+                            st.success("✅ Координаты действительны")
+                            details = result.get("details", {})
+                            st.json({
+                                "lat": details.get("latitude"),
+                                "lon": details.get("longitude"),
+                                "temp": details.get("current_temp"),
+                                "timezone": details.get("timezone")
+                            })
+                        else:
+                            st.error(f"❌ {result.get('message')}")
+    
+    elif selected_city_key is None and nav != "📊 Статус" and nav != "📑 Агрегированные отчеты":
+        st.info("👈 Выберите город в боковой панели для работы с данными")
 
 if __name__ == "__main__":
     main()

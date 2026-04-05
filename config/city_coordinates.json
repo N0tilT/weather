@@ -1,42 +1,2412 @@
 {
-  "Moscow": {
-    "lat": 55.7558,
-    "lon": 37.6176,
-    "name": "Москва"
+  "Aksa": {
+    "lat": null,
+    "lon": null,
+    "name": "Aksa"
   },
-  "Saint_Petersburg": {
-    "lat": 59.9343,
-    "lon": 30.3351,
-    "name": "Санкт-Петербург"
+  "Aksyonovo_Zilovskoye": {
+    "lat": null,
+    "lon": null,
+    "name": "Aksyonovo-Zilovskoye"
   },
-  "Sochi": {
-    "lat": 43.6028,
-    "lon": 39.7342,
-    "name": "Сочи"
+  "Akturu": {
+    "lat": null,
+    "lon": null,
+    "name": "Akturu"
   },
-  "Kazan": {
-    "lat": 55.7964,
-    "lon": 49.1082,
-    "name": "Казань"
+  "Akyar": {
+    "lat": null,
+    "lon": null,
+    "name": "Akyar"
   },
-  "Novosibirsk": {
-    "lat": 55.0084,
-    "lon": 82.9357,
-    "name": "Новосибирск"
+  "Alexeyevskoye": {
+    "lat": null,
+    "lon": null,
+    "name": "Alexeyevskoye"
   },
-  "Yekaterinburg": {
-    "lat": 56.8389,
-    "lon": 60.6057,
+  "Ali_Jurt": {
+    "lat": null,
+    "lon": null,
+    "name": "Ali-Jurt"
+  },
+  "Anabar": {
+    "lat": null,
+    "lon": null,
+    "name": "Anabar"
+  },
+  "Arkhangelsk_Kholm": {
+    "lat": 64.38133,
+    "lon": 40.72239,
+    "name": "Arkhangelsk Kholm"
+  },
+  "Arkhangelskoye": {
+    "lat": null,
+    "lon": null,
+    "name": "Arkhangelskoye"
+  },
+  "Artyomovsky": {
+    "lat": null,
+    "lon": null,
+    "name": "Artyomovsky"
+  },
+  "Astrakhanka": {
+    "lat": null,
+    "lon": null,
+    "name": "Astrakhanka"
+  },
+  "Baley": {
+    "lat": null,
+    "lon": null,
+    "name": "Baley"
+  },
+  "Barnaul_(AWS)": {
+    "lat": null,
+    "lon": null,
+    "name": "Barnaul (AWS)"
+  },
+  "Batyryevo": {
+    "lat": null,
+    "lon": null,
+    "name": "Batyryevo"
+  },
+  "Belgorod_(airport)": {
+    "lat": null,
+    "lon": null,
+    "name": "Belgorod (airport)"
+  },
+  "Belokuriha_2": {
+    "lat": 51.9461,
+    "lon": 84.89098,
+    "name": "Belokuriha 2"
+  },
+  "Beloretsk_(weather_station)": {
+    "lat": null,
+    "lon": null,
+    "name": "Beloretsk (weather station)"
+  },
+  "Belya": {
+    "lat": null,
+    "lon": null,
+    "name": "Belya"
+  },
+  "Beregovoy_(aerodrome)": {
+    "lat": null,
+    "lon": null,
+    "name": "Beregovoy (aerodrome)"
+  },
+  "Biysk_Zonalnaya": {
+    "lat": null,
+    "lon": null,
+    "name": "Biysk Zonalnaya"
+  },
+  "Blagoveshchensk_(weather_station)": {
+    "lat": null,
+    "lon": null,
+    "name": "Blagoveshchensk (weather station)"
+  },
+  "Bol'shiye_Byeryezniki": {
+    "lat": null,
+    "lon": null,
+    "name": "Bol'shiye Byeryezniki"
+  },
+  "Bolshelug": {
+    "lat": null,
+    "lon": null,
+    "name": "Bolshelug"
+  },
+  "Bolshoy_Bomnak": {
+    "lat": null,
+    "lon": null,
+    "name": "Bolshoy Bomnak"
+  },
+  "Bolshoy_On": {
+    "lat": null,
+    "lon": null,
+    "name": "Bolshoy On"
+  },
+  "Bolshoy_Ushkaniy": {
+    "lat": null,
+    "lon": null,
+    "name": "Bolshoy Ushkaniy"
+  },
+  "Bratolyubovka": {
+    "lat": null,
+    "lon": null,
+    "name": "Bratolyubovka"
+  },
+  "Bryansk_(airport)": {
+    "lat": null,
+    "lon": null,
+    "name": "Bryansk (airport)"
+  },
+  "Buinaksk": {
+    "lat": null,
+    "lon": null,
+    "name": "Buinaksk"
+  },
+  "Butovo": {
+    "lat": null,
+    "lon": null,
+    "name": "Butovo"
+  },
+  "Chaun": {
+    "lat": null,
+    "lon": null,
+    "name": "Chaun"
+  },
+  "Cheboksary_(airport)": {
+    "lat": null,
+    "lon": null,
+    "name": "Cheboksary (airport)"
+  },
+  "Chokurdakh_(airport)": {
+    "lat": null,
+    "lon": null,
+    "name": "Chokurdakh (airport)"
+  },
+  "Chuguevka": {
+    "lat": null,
+    "lon": null,
+    "name": "Chuguevka"
+  },
+  "Chyulbyu": {
+    "lat": null,
+    "lon": null,
+    "name": "Chyulbyu"
+  },
+  "Debyosy": {
+    "lat": null,
+    "lon": null,
+    "name": "Debyosy"
+  },
+  "Domodedovo_(airport)": {
+    "lat": null,
+    "lon": null,
+    "name": "Domodedovo (airport)"
+  },
+  "Donetsk_(airport)": {
+    "lat": null,
+    "lon": null,
+    "name": "Donetsk (airport)"
+  },
+  "Dorozhnyy": {
+    "lat": 57.55226,
+    "lon": 40.19658,
+    "name": "Dorozhnyy"
+  },
+  "Dyoma": {
+    "lat": null,
+    "lon": null,
+    "name": "Dyoma"
+  },
+  "Dzhikimda": {
+    "lat": null,
+    "lon": null,
+    "name": "Dzhikimda"
+  },
+  "Evgekinot": {
+    "lat": null,
+    "lon": null,
+    "name": "Evgekinot"
+  },
+  "Fyedorovka": {
+    "lat": null,
+    "lon": null,
+    "name": "Fyedorovka"
+  },
+  "Gary": {
+    "lat": null,
+    "lon": null,
+    "name": "Gary"
+  },
+  "Grigoryevka": {
+    "lat": null,
+    "lon": null,
+    "name": "Grigoryevka"
+  },
+  "Habary": {
+    "lat": null,
+    "lon": null,
+    "name": "Habary"
+  },
+  "Harp": {
+    "lat": null,
+    "lon": null,
+    "name": "Harp"
+  },
+  "Horinsk_(airport)": {
+    "lat": null,
+    "lon": null,
+    "name": "Horinsk (airport)"
+  },
+  "Horol": {
+    "lat": null,
+    "lon": null,
+    "name": "Horol"
+  },
+  "Inta_(airport)": {
+    "lat": null,
+    "lon": null,
+    "name": "Inta (airport)"
+  },
+  "Irael": {
+    "lat": null,
+    "lon": null,
+    "name": "Irael"
+  },
+  "Ivdel": {
+    "lat": 60.72325,
+    "lon": 60.40103,
+    "name": "Ivdel"
+  },
+  "Kamen_na_Obi": {
+    "lat": null,
+    "lon": null,
+    "name": "Kamen-na-Obi"
+  },
+  "Kananikolskoye": {
+    "lat": null,
+    "lon": null,
+    "name": "Kananikolskoye"
+  },
+  "Karaidelskiy": {
+    "lat": null,
+    "lon": null,
+    "name": "Karaidelskiy"
+  },
+  "Karatyurek": {
+    "lat": null,
+    "lon": null,
+    "name": "Karatyurek"
+  },
+  "Katanda": {
+    "lat": null,
+    "lon": null,
+    "name": "Katanda"
+  },
+  "Kazan_Opornaya_(weather_station)": {
+    "lat": null,
+    "lon": null,
+    "name": "Kazan-Opornaya (weather station)"
+  },
+  "Kem_(aerological_station)": {
+    "lat": null,
+    "lon": null,
+    "name": "Kem (aerological station)"
+  },
+  "Khanty_Mansiysk_(airport)": {
+    "lat": null,
+    "lon": null,
+    "name": "Khanty-Mansiysk (airport)"
+  },
+  "Kherson_(weather_station)": {
+    "lat": null,
+    "lon": null,
+    "name": "Kherson (weather station)"
+  },
+  "Kirovskiy": {
+    "lat": null,
+    "lon": null,
+    "name": "Kirovskiy"
+  },
+  "Komaka": {
+    "lat": null,
+    "lon": null,
+    "name": "Komaka"
+  },
+  "Kozmodemyansk": {
+    "lat": 56.30468,
+    "lon": 46.54747,
+    "name": "Kozmodemyansk"
+  },
+  "Krasnodar_(airport)": {
+    "lat": null,
+    "lon": null,
+    "name": "Krasnodar (airport)"
+  },
+  "Krasnoselkup": {
+    "lat": 65.7198,
+    "lon": 82.4546,
+    "name": "Krasnoselkup"
+  },
+  "Krasny_Yar": {
+    "lat": null,
+    "lon": null,
+    "name": "Krasny Yar"
+  },
+  "Krest_Khaldzhay": {
+    "lat": null,
+    "lon": null,
+    "name": "Krest-Khaldzhay"
+  },
+  "Ksenyevka": {
+    "lat": null,
+    "lon": null,
+    "name": "Ksenyevka"
+  },
+  "Kurgan_(weather_station)": {
+    "lat": null,
+    "lon": null,
+    "name": "Kurgan (weather station)"
+  },
+  "Lagan": {
+    "lat": null,
+    "lon": null,
+    "name": "Lagan"
+  },
+  "Lisy_Nos": {
+    "lat": null,
+    "lon": null,
+    "name": "Lisy Nos"
+  },
+  "Lugansk": {
+    "lat": null,
+    "lon": null,
+    "name": "Lugansk"
+  },
+  "Macha": {
+    "lat": null,
+    "lon": null,
+    "name": "Macha"
+  },
+  "Malinovo": {
+    "lat": null,
+    "lon": null,
+    "name": "Malinovo"
+  },
+  "Markovo": {
+    "lat": null,
+    "lon": null,
+    "name": "Markovo"
+  },
+  "Marresale": {
+    "lat": null,
+    "lon": null,
+    "name": "Marresale"
+  },
+  "Maykop_(airport)": {
+    "lat": null,
+    "lon": null,
+    "name": "Maykop (airport)"
+  },
+  "Melnichnoye": {
+    "lat": null,
+    "lon": null,
+    "name": "Melnichnoye"
+  },
+  "Mikhaylovsk_(weather_station)": {
+    "lat": null,
+    "lon": null,
+    "name": "Mikhaylovsk (weather station)"
+  },
+  "Mirnyy_(airport)": {
+    "lat": null,
+    "lon": null,
+    "name": "Mirnyy (airport)"
+  },
+  "Mnogoudobnoe": {
+    "lat": null,
+    "lon": null,
+    "name": "Mnogoudobnoe"
+  },
+  "Moscow_(northwest": {
+    "lat": null,
+    "lon": null,
+    "name": "Moscow (northwest"
+  },
+  "Mutny_Materik": {
+    "lat": null,
+    "lon": null,
+    "name": "Mutny Materik"
+  },
+  "Nadym_(airport)": {
+    "lat": null,
+    "lon": null,
+    "name": "Nadym (airport)"
+  },
+  "Nauchny_Gorodok": {
+    "lat": null,
+    "lon": null,
+    "name": "Nauchny Gorodok"
+  },
+  "Nevyansk": {
+    "lat": 57.57606,
+    "lon": 60.21119,
+    "name": "Nevyansk"
+  },
+  "Nizhny_Tsasuchey": {
+    "lat": null,
+    "lon": null,
+    "name": "Nizhny Tsasuchey"
+  },
+  "Novo_Iyerusalim": {
+    "lat": null,
+    "lon": null,
+    "name": "Novo-Iyerusalim"
+  },
+  "Novy_Urengoy_(airport)": {
+    "lat": null,
+    "lon": null,
+    "name": "Novy Urengoy (airport)"
+  },
+  "Obluchye": {
+    "lat": null,
+    "lon": null,
+    "name": "Obluchye"
+  },
+  "Ohotskiy_Perevoz": {
+    "lat": null,
+    "lon": null,
+    "name": "Ohotskiy Perevoz"
+  },
+  "Olga": {
+    "lat": null,
+    "lon": null,
+    "name": "Olga"
+  },
+  "Orel_(airport)": {
+    "lat": null,
+    "lon": null,
+    "name": "Orel (airport)"
+  },
+  "Orenburg_(weather_station)": {
+    "lat": null,
+    "lon": null,
+    "name": "Orenburg (weather station)"
+  },
+  "Pavlovsky_Posad": {
+    "lat": null,
+    "lon": null,
+    "name": "Pavlovsky Posad"
+  },
+  "Petrovsk_Zabaikalskiy": {
+    "lat": null,
+    "lon": null,
+    "name": "Petrovsk-Zabaikalskiy"
+  },
+  "Pevek_(weather_station)": {
+    "lat": null,
+    "lon": null,
+    "name": "Pevek (weather station)"
+  },
+  "Polyarny_(airport)": {
+    "lat": null,
+    "lon": null,
+    "name": "Polyarny (airport)"
+  },
+  "Posyet": {
+    "lat": null,
+    "lon": null,
+    "name": "Posyet"
+  },
+  "Prohladnyy": {
+    "lat": null,
+    "lon": null,
+    "name": "Prohladnyy"
+  },
+  "Pustosh": {
+    "lat": 55.02139,
+    "lon": 32.14278,
+    "name": "Pustosh"
+  },
+  "Rayevsky": {
+    "lat": null,
+    "lon": null,
+    "name": "Rayevsky"
+  },
+  "Romanivka": {
+    "lat": null,
+    "lon": null,
+    "name": "Romanivka"
+  },
+  "Rostov_on_Don": {
+    "lat": null,
+    "lon": null,
+    "name": "Rostov-on-Don"
+  },
+  "Rudnaja_Pristan": {
+    "lat": null,
+    "lon": null,
+    "name": "Rudnaja Pristan"
+  },
+  "Sannikov_Strait": {
+    "lat": null,
+    "lon": null,
+    "name": "Sannikov Strait"
+  },
+  "Saransk_(airport)": {
+    "lat": null,
+    "lon": null,
+    "name": "Saransk (airport)"
+  },
+  "Saratov_South_(airport)": {
+    "lat": null,
+    "lon": null,
+    "name": "Saratov South (airport)"
+  },
+  "Sebyan_kyuel": {
+    "lat": null,
+    "lon": null,
+    "name": "Sebyan-kyuel"
+  },
+  "Segyan_Kyel": {
+    "lat": null,
+    "lon": null,
+    "name": "Segyan-Kyel"
+  },
+  "Seminsky_pass": {
+    "lat": null,
+    "lon": null,
+    "name": "Seminsky pass"
+  },
+  "Sevastopol": {
+    "lat": null,
+    "lon": null,
+    "name": "Sevastopol"
+  },
+  "Shadzhatmaz": {
+    "lat": null,
+    "lon": null,
+    "name": "Shadzhatmaz"
+  },
+  "Sheremetyevo_(airport)": {
+    "lat": null,
+    "lon": null,
+    "name": "Sheremetyevo (airport)"
+  },
+  "Shulgan_Tash_(nature_reserve)": {
+    "lat": null,
+    "lon": null,
+    "name": "Shulgan-Tash (nature reserve)"
+  },
+  "Solovyevsk": {
+    "lat": null,
+    "lon": null,
+    "name": "Solovyevsk"
+  },
+  "Sosnovo_Ozërskoye": {
+    "lat": 52.52289,
+    "lon": 111.53845,
+    "name": "Sosnovo-Ozërskoye"
+  },
+  "Spassk_Dalniy": {
+    "lat": null,
+    "lon": null,
+    "name": "Spassk-Dalniy"
+  },
+  "Srednyaya_Olyokma": {
+    "lat": null,
+    "lon": null,
+    "name": "Srednyaya Olyokma"
+  },
+  "Stavropol_(airport)": {
+    "lat": null,
+    "lon": null,
+    "name": "Stavropol (airport)"
+  },
+  "Suhana": {
+    "lat": null,
+    "lon": null,
+    "name": "Suhana"
+  },
+  "Sulak_(weather_station_37461)": {
+    "lat": null,
+    "lon": null,
+    "name": "Sulak (weather station 37461)"
+  },
+  "Suontit": {
+    "lat": null,
+    "lon": null,
+    "name": "Suontit"
+  },
+  "Syktyvkar_(airport)": {
+    "lat": null,
+    "lon": null,
+    "name": "Syktyvkar (airport)"
+  },
+  "Taksimo_(weather_station)": {
+    "lat": null,
+    "lon": null,
+    "name": "Taksimo (weather station)"
+  },
+  "Talmenka": {
+    "lat": null,
+    "lon": null,
+    "name": "Talmenka"
+  },
+  "Tayna": {
+    "lat": null,
+    "lon": null,
+    "name": "Tayna"
+  },
+  "Teberda": {
+    "lat": null,
+    "lon": null,
+    "name": "Teberda"
+  },
+  "Tegyulta_Terde": {
+    "lat": null,
+    "lon": null,
+    "name": "Tegyulta-Terde"
+  },
+  "Tepliy_Klyuch": {
+    "lat": null,
+    "lon": null,
+    "name": "Tepliy Klyuch"
+  },
+  "Tiksi_(airport)": {
+    "lat": null,
+    "lon": null,
+    "name": "Tiksi (airport)"
+  },
+  "Timiryazevskij": {
+    "lat": null,
+    "lon": null,
+    "name": "Timiryazevskij"
+  },
+  "Tolstopaltsevo": {
+    "lat": null,
+    "lon": null,
+    "name": "Tolstopaltsevo"
+  },
+  "Tompa": {
+    "lat": null,
+    "lon": null,
+    "name": "Tompa"
+  },
+  "Torey": {
+    "lat": null,
+    "lon": null,
+    "name": "Torey"
+  },
+  "Tuimazy": {
+    "lat": null,
+    "lon": null,
+    "name": "Tuimazy"
+  },
+  "Tukan": {
+    "lat": null,
+    "lon": null,
+    "name": "Tukan"
+  },
+  "Ucaly_(weather_station)": {
+    "lat": null,
+    "lon": null,
+    "name": "Ucaly (weather station)"
+  },
+  "Uchur": {
+    "lat": null,
+    "lon": null,
+    "name": "Uchur"
+  },
+  "Ugino": {
+    "lat": null,
+    "lon": null,
+    "name": "Ugino"
+  },
+  "Uglovskoe": {
+    "lat": null,
+    "lon": null,
+    "name": "Uglovskoe"
+  },
+  "Ukhta_(airport)": {
+    "lat": null,
+    "lon": null,
+    "name": "Ukhta (airport)"
+  },
+  "Ulan_Ude_(airport)": {
+    "lat": null,
+    "lon": null,
+    "name": "Ulan-Ude (airport)"
+  },
+  "Ulu_Teljak": {
+    "lat": null,
+    "lon": null,
+    "name": "Ulu-Teljak"
+  },
+  "Ulyanovsk_(airport)": {
+    "lat": null,
+    "lon": null,
+    "name": "Ulyanovsk (airport)"
+  },
+  "Uryupino": {
+    "lat": 55.17389,
+    "lon": 33.6425,
+    "name": "Uryupino"
+  },
+  "Usinsk_(airport)": {
+    "lat": null,
+    "lon": null,
+    "name": "Usinsk (airport)"
+  },
+  "Ust_Barguzin": {
+    "lat": null,
+    "lon": null,
+    "name": "Ust-Barguzin"
+  },
+  "Ust_Charyshskaya_Pristan": {
+    "lat": null,
+    "lon": null,
+    "name": "Ust-Charyshskaya Pristan"
+  },
+  "Ust_Dzhilinda": {
+    "lat": null,
+    "lon": null,
+    "name": "Ust-Dzhilinda"
+  },
+  "Ust_Kalmanka": {
+    "lat": null,
+    "lon": null,
+    "name": "Ust-Kalmanka"
+  },
+  "Ust_Kan": {
+    "lat": null,
+    "lon": null,
+    "name": "Ust-Kan"
+  },
+  "Ust_Karsk": {
+    "lat": null,
+    "lon": null,
+    "name": "Ust-Karsk"
+  },
+  "Ust_Koksa": {
+    "lat": null,
+    "lon": null,
+    "name": "Ust-Koksa"
+  },
+  "Ust_Mil": {
+    "lat": null,
+    "lon": null,
+    "name": "Ust-Mil"
+  },
+  "Ust_Moma": {
+    "lat": null,
+    "lon": null,
+    "name": "Ust-Moma"
+  },
+  "Ust_Nyukzha": {
+    "lat": null,
+    "lon": null,
+    "name": "Ust-Nyukzha"
+  },
+  "Ust_Tsylma": {
+    "lat": null,
+    "lon": null,
+    "name": "Ust-Tsylma"
+  },
+  "Ust_Urkima": {
+    "lat": null,
+    "lon": null,
+    "name": "Ust-Urkima"
+  },
+  "Ust_Vym": {
+    "lat": null,
+    "lon": null,
+    "name": "Ust-Vym"
+  },
+  "Ust_Yudoma": {
+    "lat": null,
+    "lon": null,
+    "name": "Ust-Yudoma"
+  },
+  "Ust_Zaza": {
+    "lat": null,
+    "lon": null,
+    "name": "Ust-Zaza"
+  },
+  "Uybat": {
+    "lat": 53.72316,
+    "lon": 90.36472,
+    "name": "Uybat"
+  },
+  "Verkhoturye": {
+    "lat": null,
+    "lon": null,
+    "name": "Verkhoturye"
+  },
+  "Verkhoyanskiy_Perevoz": {
+    "lat": null,
+    "lon": null,
+    "name": "Verkhoyanskiy Perevoz"
+  },
+  "Vladikavkaz_(airport)": {
+    "lat": null,
+    "lon": null,
+    "name": "Vladikavkaz (airport)"
+  },
+  "Vnukovo_(airport)": {
+    "lat": null,
+    "lon": null,
+    "name": "Vnukovo (airport)"
+  },
+  "Vologda_(airport)": {
+    "lat": null,
+    "lon": null,
+    "name": "Vologda (airport)"
+  },
+  "Vorkuta_(airport)": {
+    "lat": null,
+    "lon": null,
+    "name": "Vorkuta (airport)"
+  },
+  "Vyerkhnyeyarkyeyevo": {
+    "lat": null,
+    "lon": null,
+    "name": "Vyerkhnyeyarkyeyevo"
+  },
+  "Agzu": {
+    "lat": 47.59305,
+    "lon": 138.39359,
+    "name": "Агзу"
+  },
+  "Aznakaevo": {
+    "lat": 54.85,
+    "lon": 53.1,
+    "name": "Азнакаево"
+  },
+  "Ak_Kem": {
+    "lat": 50.6,
+    "lon": 85.83333,
+    "name": "Ак-Кем"
+  },
+  "Aksarka": {
+    "lat": 66.56056,
+    "lon": 67.7975,
+    "name": "Аксарка"
+  },
+  "Aksubaevo": {
+    "lat": 54.84989,
+    "lon": 50.79928,
+    "name": "Аксубаево"
+  },
+  "Alapaevsk": {
+    "lat": 57.84998,
+    "lon": 61.69414,
+    "name": "Алапаевск"
+  },
+  "Aldan": {
+    "lat": 58.61232,
+    "lon": 125.40002,
+    "name": "Алдан"
+  },
+  "Aleysk": {
+    "lat": 52.4926,
+    "lon": 82.7822,
+    "name": "Алейск"
+  },
+  "Aleksandrovskiy_Zavod": {
+    "lat": 50.92573,
+    "lon": 117.93708,
+    "name": "Александровский Завод"
+  },
+  "Amga": {
+    "lat": 60.89939,
+    "lon": 131.98175,
+    "name": "Амга"
+  },
+  "Anadyr": {
+    "lat": 64.73424,
+    "lon": 177.5103,
+    "name": "Анадырь"
+  },
+  "Andryushkino": {
+    "lat": 58.08333,
+    "lon": 32.66667,
+    "name": "Андрюшкино"
+  },
+  "Antipayuta": {
+    "lat": 69.1011,
+    "lon": 76.86464,
+    "name": "Антипаюта"
+  },
+  "Arsk": {
+    "lat": 56.09151,
+    "lon": 49.87783,
+    "name": "Арск"
+  },
+  "Artezian": {
+    "lat": 44.946,
+    "lon": 46.66638,
+    "name": "Артезиан"
+  },
+  "Artybash": {
+    "lat": 51.79278,
+    "lon": 87.27611,
+    "name": "Артыбаш"
+  },
+  "Arhyz": {
+    "lat": 43.56511,
+    "lon": 41.27837,
+    "name": "Архыз"
+  },
+  "Askino": {
+    "lat": 56.08781,
+    "lon": 56.57818,
+    "name": "Аскино"
+  },
+  "Astashiha": {
+    "lat": 60.242,
+    "lon": 39.6976,
+    "name": "Асташиха"
+  },
+  "Astrahan": {
+    "lat": 46.34968,
+    "lon": 48.04076,
+    "name": "Астрахань"
+  },
+  "Ahty": {
+    "lat": 41.45949,
+    "lon": 47.73247,
+    "name": "Ахты"
+  },
+  "Aeroport_Severouralsk": {
+    "lat": 60.30042,
+    "lon": 60.07462,
+    "name": "Аэропорт Североуральск"
+  },
+  "Babayurt": {
+    "lat": 43.59976,
+    "lon": 46.77805,
+    "name": "Бабаюрт"
+  },
+  "Babushkin": {
+    "lat": 55.86931,
+    "lon": 37.72966,
+    "name": "Бабушкин"
+  },
+  "Bavly": {
+    "lat": 54.39304,
+    "lon": 53.26023,
+    "name": "Бавлы"
+  },
+  "Bagdarin": {
+    "lat": 54.43333,
+    "lon": 113.6,
+    "name": "Багдарин"
+  },
+  "Bakaly": {
+    "lat": 55.17884,
+    "lon": 53.79617,
+    "name": "Бакалы"
+  },
+  "Batagay": {
+    "lat": 67.65501,
+    "lon": 134.63821,
+    "name": "Батагай"
+  },
+  "Batagay_Alyta": {
+    "lat": 67.7986,
+    "lon": 130.40363,
+    "name": "Батагай-Алыта"
+  },
+  "Batamay": {
+    "lat": 60.75889,
+    "lon": 115.60917,
+    "name": "Батамай"
+  },
+  "Baunt": {
+    "lat": 55.26667,
+    "lon": 113.13333,
+    "name": "Баунт"
+  },
+  "Beklemishevo": {
+    "lat": 57.69167,
+    "lon": 37.10361,
+    "name": "Беклемишево"
+  },
+  "Belogorka": {
+    "lat": 53.59615,
+    "lon": 44.86315,
+    "name": "Белогорка"
+  },
+  "Biysk": {
+    "lat": 52.53639,
+    "lon": 85.20722,
+    "name": "Бийск"
+  },
+  "Bilibino": {
+    "lat": 68.05464,
+    "lon": 166.43721,
+    "name": "Билибино"
+  },
+  "Birobidzhan": {
+    "lat": 48.79284,
+    "lon": 132.92386,
+    "name": "Биробиджан"
+  },
+  "Birsk": {
+    "lat": 55.42018,
+    "lon": 55.54212,
+    "name": "Бирск"
+  },
+  "Bisert": {
+    "lat": 56.85884,
+    "lon": 59.05297,
+    "name": "Бисерть"
+  },
+  "Bichura": {
+    "lat": 50.58806,
+    "lon": 107.60222,
+    "name": "Бичура"
+  },
+  "Blagoveschenka": {
+    "lat": 52.83333,
+    "lon": 79.86667,
+    "name": "Благовещенка"
+  },
+  "Bogopol": {
+    "lat": 44.24964,
+    "lon": 135.45538,
+    "name": "Богополь"
+  },
+  "Bolgar": {
+    "lat": 54.97417,
+    "lon": 49.03083,
+    "name": "Болгар"
+  },
+  "Borovichi": {
+    "lat": 58.39418,
+    "lon": 33.91864,
+    "name": "Боровичи"
+  },
+  "Bugulma": {
+    "lat": 54.5378,
+    "lon": 52.7985,
+    "name": "Бугульма"
+  },
+  "Buzdyak": {
+    "lat": 54.56924,
+    "lon": 54.53083,
+    "name": "Буздяк"
+  },
+  "Burmantovo": {
+    "lat": 61.28972,
+    "lon": 60.46944,
+    "name": "Бурмантово"
+  },
+  "Butka": {
+    "lat": 56.71788,
+    "lon": 63.78661,
+    "name": "Бутка"
+  },
+  "Byssa": {
+    "lat": 52.4077,
+    "lon": 130.52322,
+    "name": "Бысса"
+  },
+  "Valday": {
+    "lat": 57.97729,
+    "lon": 33.25153,
+    "name": "Валдай"
+  },
+  "Vendinga": {
+    "lat": 63.4573,
+    "lon": 47.9796,
+    "name": "Вендинга"
+  },
+  "Verhnevilyuysk": {
+    "lat": 63.44571,
+    "lon": 120.30814,
+    "name": "Верхневилюйск"
+  },
+  "Verhnee_Dubrovo": {
+    "lat": 56.75689,
+    "lon": 61.05313,
+    "name": "Верхнее Дуброво"
+  },
+  "Verhoyansk": {
+    "lat": 67.55387,
+    "lon": 133.38976,
+    "name": "Верхоянск"
+  },
+  "Veslyana": {
+    "lat": 62.99787,
+    "lon": 50.89158,
+    "name": "Весляна"
+  },
+  "Vilyuysk": {
+    "lat": 63.75136,
+    "lon": 121.63292,
+    "name": "Вилюйск"
+  },
+  "Vinnitsy": {
+    "lat": 60.62867,
+    "lon": 34.77302,
+    "name": "Винницы"
+  },
+  "Vitim": {
+    "lat": 59.44326,
+    "lon": 112.56993,
+    "name": "Витим"
+  },
+  "Vladimir": {
+    "lat": 56.13655,
+    "lon": 40.39658,
+    "name": "Владимир"
+  },
+  "Voeykovo": {
+    "lat": 59.95151,
+    "lon": 30.70616,
+    "name": "Воейково"
+  },
+  "Volgograd": {
+    "lat": 48.71939,
+    "lon": 44.50183,
+    "name": "Волгоград"
+  },
+  "Volokolamsk": {
+    "lat": 56.03361,
+    "lon": 35.96944,
+    "name": "Волоколамск"
+  },
+  "Volosovo": {
+    "lat": 59.44525,
+    "lon": 29.48911,
+    "name": "Волосово"
+  },
+  "Volchiha": {
+    "lat": 52.01356,
+    "lon": 80.35715,
+    "name": "Волчиха"
+  },
+  "Voronezh": {
+    "lat": 51.67204,
+    "lon": 39.1843,
+    "name": "Воронеж"
+  },
+  "Voskresensk": {
+    "lat": 55.29092,
+    "lon": 38.67556,
+    "name": "Воскресенск"
+  },
+  "Votkinsk": {
+    "lat": 57.04867,
+    "lon": 53.9872,
+    "name": "Воткинск"
+  },
+  "Vyborg": {
+    "lat": 60.70763,
+    "lon": 28.75283,
+    "name": "Выборг"
+  },
+  "Glubinnoe": {
+    "lat": 46.06808,
+    "lon": 135.38853,
+    "name": "Глубинное"
+  },
+  "Gomzino": {
+    "lat": 56.18333,
+    "lon": 36.98333,
+    "name": "Гомзино"
+  },
+  "Gorno_Altaysk": {
+    "lat": 51.96056,
+    "lon": 85.91892,
+    "name": "Горно-Алтайск"
+  },
+  "Gorodovikovsk": {
+    "lat": 46.08776,
+    "lon": 41.93344,
+    "name": "Городовиковск"
+  },
+  "Goryachinsk": {
+    "lat": 52.98333,
+    "lon": 108.3,
+    "name": "Горячинск"
+  },
+  "Groznyy": {
+    "lat": 43.31195,
+    "lon": 45.68895,
+    "name": "Грозный"
+  },
+  "Guzeripl": {
+    "lat": 43.98861,
+    "lon": 40.13639,
+    "name": "Гузерипль"
+  },
+  "Dalnegorsk": {
+    "lat": 44.55745,
+    "lon": 135.6209,
+    "name": "Дальнегорск"
+  },
+  "Dalnerechensk": {
+    "lat": 45.93149,
+    "lon": 133.73906,
+    "name": "Дальнереченск"
+  },
+  "Dahovskaya": {
+    "lat": 44.23,
+    "lon": 40.20306,
+    "name": "Даховская"
+  },
+  "Delyankir": {
+    "lat": 63.83946,
+    "lon": 145.61005,
+    "name": "Делянкир"
+  },
+  "Demyansk": {
+    "lat": 57.64456,
+    "lon": 32.46568,
+    "name": "Демянск"
+  },
+  "Derbent": {
+    "lat": 42.06622,
+    "lon": 48.28759,
+    "name": "Дербент"
+  },
+  "Dzhardzhan": {
+    "lat": 68.73702,
+    "lon": 124.02895,
+    "name": "Джарджан"
+  },
+  "Dolgoprudnyy": {
+    "lat": 55.94958,
+    "lon": 37.50183,
+    "name": "Долгопрудный"
+  },
+  "Dondukovskaya": {
+    "lat": 44.8819,
+    "lon": 40.36271,
+    "name": "Дондуковская"
+  },
+  "Dubna": {
+    "lat": 56.74049,
+    "lon": 37.18648,
+    "name": "Дубна"
+  },
+  "Duvan": {
+    "lat": 55.69497,
+    "lon": 57.90237,
+    "name": "Дуван"
+  },
+  "Dyurtyuli": {
+    "lat": 55.4873,
+    "lon": 54.86176,
+    "name": "Дюртюли"
+  },
+  "Ekaterinburg": {
+    "lat": 56.8519,
+    "lon": 60.6122,
     "name": "Екатеринбург"
   },
+  "Ekaterinoslavka": {
+    "lat": 50.37378,
+    "lon": 129.11076,
+    "name": "Екатеринославка"
+  },
+  "Efimovskiy": {
+    "lat": 59.49639,
+    "lon": 34.67222,
+    "name": "Ефимовский"
+  },
+  "Zhigansk": {
+    "lat": 66.76804,
+    "lon": 123.37658,
+    "name": "Жиганск"
+  },
+  "Zavitinsk": {
+    "lat": 50.11165,
+    "lon": 129.4394,
+    "name": "Завитинск"
+  },
+  "Zalukokoazhe": {
+    "lat": 43.90063,
+    "lon": 43.2143,
+    "name": "Залукокоаже"
+  },
+  "Zeya": {
+    "lat": 53.73601,
+    "lon": 127.257,
+    "name": "Зея"
+  },
+  "Zilair": {
+    "lat": 52.23287,
+    "lon": 57.44175,
+    "name": "Зилаир"
+  },
+  "Zmeinogorsk": {
+    "lat": 51.15776,
+    "lon": 82.19534,
+    "name": "Змеиногорск"
+  },
+  "Zyryanka": {
+    "lat": 65.73539,
+    "lon": 150.89388,
+    "name": "Зырянка"
+  },
+  "Ignashino": {
+    "lat": 59.13111,
+    "lon": 34.97556,
+    "name": "Игнашино"
+  },
+  "Igra": {
+    "lat": 57.5549,
+    "lon": 53.0544,
+    "name": "Игра"
+  },
+  "Izhma": {
+    "lat": 65.00798,
+    "lon": 53.91126,
+    "name": "Ижма"
+  },
+  "Izberbash": {
+    "lat": 42.56705,
+    "lon": 47.87546,
+    "name": "Избербаш"
+  },
+  "Insar": {
+    "lat": 53.86722,
+    "lon": 44.36915,
+    "name": "Инсар"
+  },
+  "Irbit": {
+    "lat": 57.66863,
+    "lon": 63.07072,
+    "name": "Ирбит"
+  },
   "Irkutsk": {
-    "lat": 52.17,
-    "lon": 104.18,
+    "lat": 52.29795,
+    "lon": 104.29585,
     "name": "Иркутск"
   },
-  "toliatti": {
-    "lat": 53.31,
-    "lon": 49.25,
-    "name": "Тольятти"
+  "Yoshkar_Ola": {
+    "lat": 56.63877,
+    "lon": 47.89078,
+    "name": "Йошкар-Ола"
+  },
+  "Kabansk": {
+    "lat": 52.04861,
+    "lon": 106.65278,
+    "name": "Кабанск"
+  },
+  "Kaylastuy": {
+    "lat": 49.832,
+    "lon": 118.40069,
+    "name": "Кайластуй"
+  },
+  "Kaluga": {
+    "lat": 54.5293,
+    "lon": 36.27542,
+    "name": "Калуга"
+  },
+  "Kanash": {
+    "lat": 55.50962,
+    "lon": 47.49127,
+    "name": "Канаш"
+  },
+  "Kanchalan": {
+    "lat": 65.17827,
+    "lon": 176.76562,
+    "name": "Канчалан"
+  },
+  "Karlyhanovo": {
+    "lat": 55.95278,
+    "lon": 58.68722,
+    "name": "Карлыханово"
+  },
+  "Kasumkent": {
+    "lat": 41.67746,
+    "lon": 48.15182,
+    "name": "Касумкент"
+  },
+  "Kachkanar": {
+    "lat": 58.7002,
+    "lon": 59.4839,
+    "name": "Качканар"
+  },
+  "Kizlyar": {
+    "lat": 43.84686,
+    "lon": 46.70977,
+    "name": "Кизляр"
+  },
+  "Kirishi": {
+    "lat": 59.47417,
+    "lon": 32.04007,
+    "name": "Кириши"
+  },
+  "Knyazhpogost": {
+    "lat": 62.60207,
+    "lon": 50.84904,
+    "name": "Княжпогост"
+  },
+  "Koygorodok": {
+    "lat": 60.44379,
+    "lon": 51.00342,
+    "name": "Койгородок"
+  },
+  "Kolymskoe_Nagore": {
+    "lat": 63.0,
+    "lon": 160.0,
+    "name": "Колымское Нагорье"
+  },
+  "Koslan": {
+    "lat": 63.45954,
+    "lon": 48.89695,
+    "name": "Кослан"
+  },
+  "Kostroma": {
+    "lat": 57.76647,
+    "lon": 40.92686,
+    "name": "Кострома"
+  },
+  "Kochubey": {
+    "lat": 44.98028,
+    "lon": 45.20722,
+    "name": "Кочубей"
+  },
+  "Krasnogorsk": {
+    "lat": 55.81904,
+    "lon": 37.32984,
+    "name": "Красногорск"
+  },
+  "Krasnoschyokovo": {
+    "lat": 51.67083,
+    "lon": 82.72889,
+    "name": "Краснощёково"
+  },
+  "Krasnoyarsk": {
+    "lat": 56.02668,
+    "lon": 92.90765,
+    "name": "Красноярск"
+  },
+  "Krasnyy_Chikoy": {
+    "lat": 50.36606,
+    "lon": 108.75435,
+    "name": "Красный Чикой"
+  },
+  "Kulunda": {
+    "lat": 52.566,
+    "lon": 78.9385,
+    "name": "Кулунда"
+  },
+  "Kumertau": {
+    "lat": 52.76493,
+    "lon": 55.78785,
+    "name": "Кумертау"
+  },
+  "Kumuh": {
+    "lat": 42.17018,
+    "lon": 47.11597,
+    "name": "Кумух"
+  },
+  "Kungurtug": {
+    "lat": 50.59944,
+    "lon": 97.52278,
+    "name": "Кунгуртуг"
+  },
+  "Kuppa": {
+    "lat": 42.42392,
+    "lon": 47.12259,
+    "name": "Куппа"
+  },
+  "Kurumkan": {
+    "lat": 54.32093,
+    "lon": 110.30651,
+    "name": "Курумкан"
+  },
+  "Kushva": {
+    "lat": 58.28731,
+    "lon": 59.74751,
+    "name": "Кушва"
+  },
+  "Kushnaryonkovo": {
+    "lat": 55.105,
+    "lon": 55.35083,
+    "name": "Кушнарёнково"
+  },
+  "Kyzyl": {
+    "lat": 51.71081,
+    "lon": 94.45338,
+    "name": "Кызыл"
+  },
+  "Kyzyl_Ozyok": {
+    "lat": 51.89138,
+    "lon": 85.99535,
+    "name": "Кызыл-Озёк"
+  },
+  "Kyker": {
+    "lat": 53.16729,
+    "lon": 115.8313,
+    "name": "Кыкер"
+  },
+  "Kyra": {
+    "lat": 49.57903,
+    "lon": 111.97638,
+    "name": "Кыра"
+  },
+  "Kyren": {
+    "lat": 51.6828,
+    "lon": 102.1408,
+    "name": "Кырен"
+  },
+  "Kytlym": {
+    "lat": 59.4996,
+    "lon": 59.202,
+    "name": "Кытлым"
+  },
+  "Kyusyur": {
+    "lat": 70.68814,
+    "lon": 127.36362,
+    "name": "Кюсюр"
+  },
+  "Kyahta": {
+    "lat": 50.35737,
+    "lon": 106.45033,
+    "name": "Кяхта"
+  },
+  "Laishevo": {
+    "lat": 55.40464,
+    "lon": 49.55037,
+    "name": "Лаишево"
+  },
+  "Lensk": {
+    "lat": 60.72383,
+    "lon": 114.93447,
+    "name": "Ленск"
+  },
+  "Lipetsk": {
+    "lat": 52.60311,
+    "lon": 39.57076,
+    "name": "Липецк"
+  },
+  "Lomonosov": {
+    "lat": 59.90612,
+    "lon": 29.77253,
+    "name": "Ломоносов"
+  },
+  "Luhovitsy": {
+    "lat": 54.9418,
+    "lon": 39.02498,
+    "name": "Луховицы"
+  },
+  "Luchegorsk": {
+    "lat": 46.44292,
+    "lon": 134.29617,
+    "name": "Лучегорск"
+  },
+  "Magadan": {
+    "lat": 59.5638,
+    "lon": 150.80347,
+    "name": "Магадан"
+  },
+  "Magdagachi": {
+    "lat": 53.45292,
+    "lon": 125.80377,
+    "name": "Магдагачи"
+  },
+  "Mazanovo": {
+    "lat": 51.63119,
+    "lon": 128.82524,
+    "name": "Мазаново"
+  },
+  "Malaya_Kema": {
+    "lat": 45.4149,
+    "lon": 137.15413,
+    "name": "Малая Кема"
+  },
+  "Maloe_Sareevo": {
+    "lat": 55.71667,
+    "lon": 37.2,
+    "name": "Малое Сареево"
+  },
+  "Malye_Derbety": {
+    "lat": 47.95518,
+    "lon": 44.68133,
+    "name": "Малые Дербеты"
+  },
+  "Meleuz": {
+    "lat": 52.96467,
+    "lon": 55.93277,
+    "name": "Мелеуз"
+  },
+  "Melihovo": {
+    "lat": 55.1144,
+    "lon": 37.64827,
+    "name": "Мелихово"
+  },
+  "Menzelinsk": {
+    "lat": 55.72706,
+    "lon": 53.10258,
+    "name": "Мензелинск"
+  },
+  "Mihaylovskoe": {
+    "lat": 51.82389,
+    "lon": 79.71722,
+    "name": "Михайловское"
+  },
+  "Mogoytuy": {
+    "lat": 51.28704,
+    "lon": 114.9318,
+    "name": "Могойтуй"
+  },
+  "Mogocha": {
+    "lat": 53.73665,
+    "lon": 119.76287,
+    "name": "Могоча"
+  },
+  "Mozhaysk": {
+    "lat": 55.50194,
+    "lon": 36.02722,
+    "name": "Можайск"
+  },
+  "Mozhga": {
+    "lat": 56.44576,
+    "lon": 52.2156,
+    "name": "Можга"
+  },
+  "Molotov": {
+    "lat": 58.01046,
+    "lon": 56.25017,
+    "name": "Молотов"
+  },
+  "Mondy": {
+    "lat": 51.67722,
+    "lon": 100.99361,
+    "name": "Монды"
+  },
+  "Morki": {
+    "lat": 56.43244,
+    "lon": 48.99904,
+    "name": "Морки"
+  },
+  "Mugur_Aksy": {
+    "lat": 50.38072,
+    "lon": 90.43739,
+    "name": "Мугур-Аксы"
+  },
+  "Muzhi": {
+    "lat": 65.4003,
+    "lon": 64.70278,
+    "name": "Мужи"
+  },
+  "Muslyumovo": {
+    "lat": 55.30333,
+    "lon": 53.19472,
+    "name": "Муслюмово"
+  },
+  "Muhorshibir": {
+    "lat": 51.04986,
+    "lon": 107.82997,
+    "name": "Мухоршибирь"
+  },
+  "Namtsy": {
+    "lat": 62.72414,
+    "lon": 129.66606,
+    "name": "Намцы"
+  },
+  "Naurskaya": {
+    "lat": 43.64999,
+    "lon": 45.31127,
+    "name": "Наурская"
+  },
+  "Nahodka": {
+    "lat": 42.8438,
+    "lon": 132.91805,
+    "name": "Находка"
+  },
+  "Nemchinovka": {
+    "lat": 55.72288,
+    "lon": 37.36086,
+    "name": "Немчиновка"
+  },
+  "Nerchinskiy_Zavod": {
+    "lat": 51.30855,
+    "lon": 119.61477,
+    "name": "Нерчинский Завод"
+  },
+  "Nizhneangarsk": {
+    "lat": 55.79326,
+    "lon": 109.58029,
+    "name": "Нижнеангарск"
+  },
+  "Nizhniy_Kamuk": {
+    "lat": 43.40578,
+    "lon": 42.92744,
+    "name": "Нижний Камук"
+  },
+  "Nizhniy_Tagil": {
+    "lat": 57.91944,
+    "lon": 59.965,
+    "name": "Нижний Тагил"
+  },
+  "Novaya_Kurba": {
+    "lat": 52.04153,
+    "lon": 108.51113,
+    "name": "Новая Курба"
+  },
+  "Novyy_Port": {
+    "lat": 67.69268,
+    "lon": 72.89934,
+    "name": "Новый Порт"
+  },
+  "Noyabrsk": {
+    "lat": 63.19309,
+    "lon": 75.43728,
+    "name": "Ноябрьск"
+  },
+  "Nyda": {
+    "lat": 66.62472,
+    "lon": 72.92278,
+    "name": "Ныда"
+  },
+  "Nyurba": {
+    "lat": 63.28431,
+    "lon": 118.34975,
+    "name": "Нюрба"
+  },
+  "Ozerki": {
+    "lat": 60.03947,
+    "lon": 30.31128,
+    "name": "Озерки"
+  },
+  "Oymyakon": {
+    "lat": 63.46217,
+    "lon": 142.7949,
+    "name": "Оймякон"
+  },
+  "Okunev_Nos": {
+    "lat": 66.25761,
+    "lon": 52.56255,
+    "name": "Окунев Нос"
+  },
+  "Olenyok": {
+    "lat": 68.50472,
+    "lon": 112.4485,
+    "name": "Оленёк"
+  },
+  "Olyokminskiy": {
+    "lat": 60.38547,
+    "lon": 120.18255,
+    "name": "Олёкминский"
+  },
+  "Omolon": {
+    "lat": 65.23262,
+    "lon": 160.53947,
+    "name": "Омолон"
+  },
+  "Onguday": {
+    "lat": 50.74962,
+    "lon": 86.13379,
+    "name": "Онгудай"
+  },
+  "Orlik": {
+    "lat": 52.5178,
+    "lon": 99.825,
+    "name": "Орлик"
+  },
+  "Ostrovnoe": {
+    "lat": 51.65476,
+    "lon": 55.92722,
+    "name": "Островное"
+  },
+  "Ohona": {
+    "lat": 58.566,
+    "lon": 35.643,
+    "name": "Охона"
+  },
+  "Pavlovka": {
+    "lat": 54.75036,
+    "lon": 36.36594,
+    "name": "Павловка"
+  },
+  "Petropavlovka": {
+    "lat": 50.6114,
+    "lon": 105.3196,
+    "name": "Петропавловка"
+  },
+  "Pitlyar": {
+    "lat": 65.84116,
+    "lon": 65.91591,
+    "name": "Питляр"
+  },
+  "Pogranichnyy": {
+    "lat": 44.4097,
+    "lon": 131.3778,
+    "name": "Пограничный"
+  },
+  "Pomozdino": {
+    "lat": 62.19551,
+    "lon": 54.1873,
+    "name": "Помоздино"
+  },
+  "Poyarkovo": {
+    "lat": 49.62594,
+    "lon": 128.65466,
+    "name": "Поярково"
+  },
+  "Pskov": {
+    "lat": 57.81404,
+    "lon": 28.34493,
+    "name": "Псков"
+  },
+  "Pushkino": {
+    "lat": 55.99456,
+    "lon": 37.82897,
+    "name": "Пушкино"
+  },
+  "Rastnavolok": {
+    "lat": 64.58154,
+    "lon": 34.90966,
+    "name": "Растьнаволок"
+  },
+  "Rebriha": {
+    "lat": 53.07333,
+    "lon": 82.34083,
+    "name": "Ребриха"
+  },
+  "Revda": {
+    "lat": 56.80239,
+    "lon": 59.93774,
+    "name": "Ревда"
+  },
+  "Rodino": {
+    "lat": 52.49783,
+    "lon": 80.20294,
+    "name": "Родино"
+  },
+  "Rubtsovsk": {
+    "lat": 51.51473,
+    "lon": 81.20613,
+    "name": "Рубцовск"
+  },
+  "Ryazan": {
+    "lat": 54.6269,
+    "lon": 39.6916,
+    "name": "Рязань"
+  },
+  "Salavat": {
+    "lat": 53.3828,
+    "lon": 55.91094,
+    "name": "Салават"
+  },
+  "Salehard": {
+    "lat": 66.53,
+    "lon": 66.60194,
+    "name": "Салехард"
+  },
+  "Sanaga": {
+    "lat": 50.73064,
+    "lon": 102.79993,
+    "name": "Санага"
+  },
+  "Sangar": {
+    "lat": 63.92405,
+    "lon": 127.46744,
+    "name": "Сангар"
+  },
+  "Sankt_Peterburg": {
+    "lat": 59.93863,
+    "lon": 30.31413,
+    "name": "Санкт-Петербург"
+  },
+  "Sarapul": {
+    "lat": 56.47633,
+    "lon": 53.79782,
+    "name": "Сарапул"
+  },
+  "Saryg_Sep": {
+    "lat": 51.49074,
+    "lon": 95.56081,
+    "name": "Сарыг-Сеп"
+  },
+  "Sviyagino": {
+    "lat": 44.8177,
+    "lon": 133.0783,
+    "name": "Свиягино"
+  },
+  "Selty": {
+    "lat": 57.3132,
+    "lon": 52.1345,
+    "name": "Селты"
+  },
+  "Semyonovskiy": {
+    "lat": 68.97398,
+    "lon": 33.09747,
+    "name": "Семёновский"
+  },
+  "Sergiev_Posad": {
+    "lat": 56.31204,
+    "lon": 38.13869,
+    "name": "Сергиев Посад"
+  },
+  "Sergokala": {
+    "lat": 42.45384,
+    "lon": 47.66017,
+    "name": "Сергокала"
+  },
+  "Skovorodino": {
+    "lat": 53.98561,
+    "lon": 123.93872,
+    "name": "Сковородино"
+  },
+  "Smidovich": {
+    "lat": 48.59647,
+    "lon": 133.80865,
+    "name": "Смидович"
+  },
+  "Smolensk": {
+    "lat": 54.77944,
+    "lon": 32.04371,
+    "name": "Смоленск"
+  },
+  "Soloneshnoe": {
+    "lat": 51.6544,
+    "lon": 84.3197,
+    "name": "Солонешное"
+  },
+  "Sorokino": {
+    "lat": 53.75,
+    "lon": 84.91667,
+    "name": "Сорокино"
+  },
+  "Sosnovo": {
+    "lat": 60.55145,
+    "lon": 30.21441,
+    "name": "Сосново"
+  },
+  "Sosunovo": {
+    "lat": 59.85155,
+    "lon": 38.21675,
+    "name": "Сосуново"
+  },
+  "Srednekolymsk": {
+    "lat": 67.45588,
+    "lon": 153.704,
+    "name": "Среднеколымск"
+  },
+  "Sretensk": {
+    "lat": 52.24816,
+    "lon": 117.7071,
+    "name": "Сретенск"
+  },
+  "Starosubhangulovo": {
+    "lat": 53.10375,
+    "lon": 57.42873,
+    "name": "Старосубхангулово"
+  },
+  "Sterlitamak": {
+    "lat": 53.63793,
+    "lon": 55.9533,
+    "name": "Стерлитамак"
+  },
+  "Stoyba": {
+    "lat": 52.79028,
+    "lon": 131.71786,
+    "name": "Стойба"
+  },
+  "Suhaya": {
+    "lat": 59.5552,
+    "lon": 57.8112,
+    "name": "Сухая"
+  },
+  "Sysert": {
+    "lat": 56.50171,
+    "lon": 60.81978,
+    "name": "Сысерть"
+  },
+  "Syoyaha": {
+    "lat": 70.16528,
+    "lon": 72.50944,
+    "name": "Сёяха"
+  },
+  "Tabory": {
+    "lat": 58.5201,
+    "lon": 64.54839,
+    "name": "Таборы"
+  },
+  "Tavda": {
+    "lat": 58.04203,
+    "lon": 65.27165,
+    "name": "Тавда"
+  },
+  "Tazovskiy": {
+    "lat": 67.4715,
+    "lon": 78.7162,
+    "name": "Тазовский"
+  },
+  "Taldom": {
+    "lat": 56.73097,
+    "lon": 37.52824,
+    "name": "Талдом"
+  },
+  "Tambey": {
+    "lat": 71.47645,
+    "lon": 71.81513,
+    "name": "Тамбей"
+  },
+  "Tambov": {
+    "lat": 52.73169,
+    "lon": 41.44326,
+    "name": "Тамбов"
+  },
+  "Tanhoy": {
+    "lat": 51.55683,
+    "lon": 105.1262,
+    "name": "Танхой"
+  },
+  "Tanyurer": {
+    "lat": 64.84223,
+    "lon": 174.27966,
+    "name": "Танюрер"
+  },
+  "Tarko_Sale": {
+    "lat": 64.91611,
+    "lon": 77.77457,
+    "name": "Тарко-Сале"
+  },
+  "Tashtyp": {
+    "lat": 52.79542,
+    "lon": 89.89477,
+    "name": "Таштып"
+  },
+  "Telemba": {
+    "lat": 52.74009,
+    "lon": 113.2876,
+    "name": "Телемба"
+  },
+  "Temnikov": {
+    "lat": 54.63059,
+    "lon": 43.21918,
+    "name": "Темников"
+  },
+  "Tetyushi": {
+    "lat": 54.93821,
+    "lon": 48.83656,
+    "name": "Тетюши"
+  },
+  "Tlyarata": {
+    "lat": 42.10552,
+    "lon": 46.35416,
+    "name": "Тлярата"
+  },
+  "Togul": {
+    "lat": 53.467,
+    "lon": 85.9128,
+    "name": "Тогул"
+  },
+  "Tommot": {
+    "lat": 58.95717,
+    "lon": 126.29158,
+    "name": "Томмот"
+  },
+  "Tomsk": {
+    "lat": 56.50032,
+    "lon": 84.98204,
+    "name": "Томск"
+  },
+  "Tongulah": {
+    "lat": 61.95668,
+    "lon": 124.52186,
+    "name": "Тонгулах"
+  },
+  "Torbeevo": {
+    "lat": 54.07743,
+    "lon": 43.24993,
+    "name": "Торбеево"
+  },
+  "Tugulym": {
+    "lat": 57.05863,
+    "lon": 64.64702,
+    "name": "Тугулым"
+  },
+  "Tungokochen": {
+    "lat": 53.53309,
+    "lon": 115.61665,
+    "name": "Тунгокочен"
+  },
+  "Tunka": {
+    "lat": 51.7394,
+    "lon": 102.5419,
+    "name": "Тунка"
+  },
+  "Tupik": {
+    "lat": 54.4253,
+    "lon": 119.9327,
+    "name": "Тупик"
+  },
+  "Turan": {
+    "lat": 52.1449,
+    "lon": 93.91887,
+    "name": "Туран"
+  },
+  "Turinsk": {
+    "lat": 58.04575,
+    "lon": 63.69605,
+    "name": "Туринск"
+  },
+  "Turochak": {
+    "lat": 52.25968,
+    "lon": 87.12306,
+    "name": "Турочак"
+  },
+  "Tygda": {
+    "lat": 53.11169,
+    "lon": 126.32907,
+    "name": "Тыгда"
+  },
+  "Tynda": {
+    "lat": 55.15411,
+    "lon": 124.72465,
+    "name": "Тында"
+  },
+  "Teeli": {
+    "lat": 51.01398,
+    "lon": 90.20535,
+    "name": "Тээли"
+  },
+  "Tyunyar": {
+    "lat": 53.5498,
+    "lon": 45.82864,
+    "name": "Тюнярь"
+  },
+  "Ugolnyy": {
+    "lat": 59.76831,
+    "lon": 60.0062,
+    "name": "Угольный"
+  },
+  "Ulagan": {
+    "lat": 50.6314,
+    "lon": 87.95897,
+    "name": "Улаган"
+  },
+  "Ulyoty": {
+    "lat": 51.35589,
+    "lon": 112.4843,
+    "name": "Улёты"
+  },
+  "Ust_Kuyga": {
+    "lat": 70.00208,
+    "lon": 135.54877,
+    "name": "Усть-Куйга"
+  },
+  "Ust_Maya": {
+    "lat": 60.41553,
+    "lon": 134.54405,
+    "name": "Усть-Мая"
+  },
+  "Ust_Nera": {
+    "lat": 64.56968,
+    "lon": 143.237,
+    "name": "Усть-Нера"
+  },
+  "Usugli": {
+    "lat": 52.65198,
+    "lon": 115.25741,
+    "name": "Усугли"
+  },
+  "Utta": {
+    "lat": 46.3647,
+    "lon": 46.0066,
+    "name": "Утта"
+  },
+  "Ushakovo": {
+    "lat": 54.79615,
+    "lon": 36.47189,
+    "name": "Ушаково"
+  },
+  "Halyasavey": {
+    "lat": 63.385,
+    "lon": 78.32139,
+    "name": "Халясавей"
+  },
+  "Haranor": {
+    "lat": 50.117,
+    "lon": 116.677,
+    "name": "Харанор"
+  },
+  "Hasavyurt": {
+    "lat": 43.24872,
+    "lon": 46.58571,
+    "name": "Хасавюрт"
+  },
+  "Hilok": {
+    "lat": 51.36777,
+    "lon": 110.46804,
+    "name": "Хилок"
+  },
+  "Hut": {
+    "lat": 52.613,
+    "lon": 94.551,
+    "name": "Хут"
+  },
+  "Tsakir": {
+    "lat": 50.4405,
+    "lon": 103.5855,
+    "name": "Цакир"
+  },
+  "Chara": {
+    "lat": 56.9033,
+    "lon": 118.2592,
+    "name": "Чара"
+  },
+  "Charyshskoe": {
+    "lat": 51.3978,
+    "lon": 83.5598,
+    "name": "Чарышское"
+  },
+  "Chelny": {
+    "lat": 55.22905,
+    "lon": 48.90358,
+    "name": "Челны"
+  },
+  "Chernyaevo": {
+    "lat": 59.32582,
+    "lon": 41.78625,
+    "name": "Черняево"
+  },
+  "Cherusti": {
+    "lat": 55.54976,
+    "lon": 40.01071,
+    "name": "Черусти"
+  },
+  "Chistopol": {
+    "lat": 55.36311,
+    "lon": 50.64244,
+    "name": "Чистополь"
+  },
+  "Chita": {
+    "lat": 52.03171,
+    "lon": 113.50087,
+    "name": "Чита"
+  },
+  "Chishmy": {
+    "lat": 54.59015,
+    "lon": 55.38201,
+    "name": "Чишмы"
+  },
+  "Choya": {
+    "lat": 52.01111,
+    "lon": 86.54824,
+    "name": "Чоя"
+  },
+  "Chulpanovo": {
+    "lat": 56.04191,
+    "lon": 49.80287,
+    "name": "Чулпаново"
+  },
+  "Churapcha": {
+    "lat": 61.99979,
+    "lon": 132.43298,
+    "name": "Чурапча"
+  },
+  "Shagonar": {
+    "lat": 51.534,
+    "lon": 92.93164,
+    "name": "Шагонар"
+  },
+  "Shatoy": {
+    "lat": 42.87153,
+    "lon": 45.69092,
+    "name": "Шатой"
+  },
+  "Shahovskaya": {
+    "lat": 56.03082,
+    "lon": 35.50638,
+    "name": "Шаховская"
+  },
+  "Shebalino": {
+    "lat": 51.29507,
+    "lon": 85.67751,
+    "name": "Шебалино"
+  },
+  "Shelkovskaya": {
+    "lat": 43.50774,
+    "lon": 46.33622,
+    "name": "Шелковская"
+  },
+  "Shelopugino": {
+    "lat": 51.65286,
+    "lon": 117.56303,
+    "name": "Шелопугино"
+  },
+  "Shimanovsk": {
+    "lat": 52.00211,
+    "lon": 127.68184,
+    "name": "Шимановск"
+  },
+  "Shugozero": {
+    "lat": 59.92722,
+    "lon": 34.21583,
+    "name": "Шугозеро"
+  },
+  "Shuntuk": {
+    "lat": 44.45139,
+    "lon": 40.17083,
+    "name": "Шунтук"
+  },
+  "Ytyk_Kyuyol": {
+    "lat": 62.36153,
+    "lon": 133.56178,
+    "name": "Ытык-Кюёль"
+  },
+  "Eyik": {
+    "lat": 66.03333,
+    "lon": 117.4,
+    "name": "Эйик"
+  },
+  "Elektrostal": {
+    "lat": 55.78647,
+    "lon": 38.45713,
+    "name": "Электросталь"
+  },
+  "Elektrougli": {
+    "lat": 55.72445,
+    "lon": 38.20908,
+    "name": "Электроугли"
+  },
+  "Elista": {
+    "lat": 46.30778,
+    "lon": 44.25583,
+    "name": "Элиста"
+  },
+  "Engels": {
+    "lat": 51.48389,
+    "lon": 46.10528,
+    "name": "Энгельс"
+  },
+  "Yugoryonok": {
+    "lat": 59.75501,
+    "lon": 137.69183,
+    "name": "Югорёнок"
+  },
+  "Yuzhno_Suhokumsk": {
+    "lat": 44.66033,
+    "lon": 45.6475,
+    "name": "Южно-Сухокумск"
+  },
+  "Yurty": {
+    "lat": 56.0498,
+    "lon": 97.6348,
+    "name": "Юрты"
+  },
+  "Yusta": {
+    "lat": 47.1211,
+    "lon": 46.3016,
+    "name": "Юста"
+  },
+  "Yakutsk": {
+    "lat": 62.03389,
+    "lon": 129.73306,
+    "name": "Якутск"
+  },
+  "Yaksha": {
+    "lat": 61.81581,
+    "lon": 56.84254,
+    "name": "Якша"
+  },
+  "Yanaul": {
+    "lat": 56.27233,
+    "lon": 54.92964,
+    "name": "Янаул"
+  },
+  "Yaroslavl": {
+    "lat": 57.62987,
+    "lon": 39.87368,
+    "name": "Ярославль"
+  },
+  "Yashkul": {
+    "lat": 46.1709,
+    "lon": 45.34213,
+    "name": "Яшкуль"
   }
 }
